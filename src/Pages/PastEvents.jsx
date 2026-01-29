@@ -3,73 +3,111 @@ import { motion } from "framer-motion";
 import { FaFire, FaUsers, FaChild } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
+/* ===== IMPORT ASSETS ===== */
+import tp6 from "../assets/tp6.png";
+import tp3 from "../assets/tp3.png";
+import tp2 from "../assets/tp2.png";
+
+/* 2025 images */
+import teens1 from "../assets/teens1.jpg";
+import teens2 from "../assets/teens2.jpg";
+import teens6 from "../assets/teens6.jpg";
+import teens8 from "../assets/teens8.jpg";
+import teens10 from "../assets/teens10.jpg";
+import teens11 from "../assets/teens11.jpg";
+import teens12 from "../assets/teens12.jpg";
+import teens13 from "../assets/teens13.jpg";
+import teens14 from "../assets/teens14.jpg";
+import teens15 from "../assets/teens15.jpg";
+import teens16 from "../assets/teens16.jpg";
+import teens20 from "../assets/teens20.jpg";
+
+/* 2024 images */
+import pray3 from "../assets/pray3.jpg";
+import pray5 from "../assets/pray5.jpg";
+import pray7 from "../assets/pray7.jpg";
+import pray9 from "../assets/pray9.jpg";
+import pray11 from "../assets/pray11.jpg";
+import pray12 from "../assets/pray12.jpg";
+import pray14 from "../assets/pray14.jpg";
+import pray15 from "../assets/pray15.jpg";
+import pray16 from "../assets/pray16.jpg";
+import pray17 from "../assets/pray17.jpg";
+import pray18 from "../assets/pray18.jpg";
+import pray19 from "../assets/pray19.jpg";
+
+/* videos */
+import teenspray4 from "../assets/teenspray4.mp4";
+import teenspray3 from "../assets/teenspray3.mp4";
+import teenspray2 from "../assets/teenspray2.mp4";
+
 /* ================= EVENTS DATA ================= */
 const events = [
   {
     title: "Teens Pray Conference 2025",
     year: 2025,
     type: "conference",
-    coverImage: "/assets/tp6.png",
+    coverImage: tp6,
     icon: <FaFire className="text-red-500 text-3xl" />,
     description:
       "A powerful gathering marked by intense prayer, worship, and spiritual transformation.",
     images: [
-      "/assets/teens1.jpg",
-      "/assets/teens2.jpg",
-      "/assets/teens6.jpg",
-      "/assets/teens8.jpg",
-      "/assets/teens10.jpg",
-      "/assets/teens11.jpg",
-      "/assets/teens12.jpg",
-      "/assets/teens13.jpg",
-      "/assets/teens14.jpg",
-      "/assets/teens15.jpg",
-      "/assets/teens16.jpg",
-      "/assets/teens20.jpg",
+      teens1,
+      teens2,
+      teens6,
+      teens8,
+      teens10,
+      teens11,
+      teens12,
+      teens13,
+      teens14,
+      teens15,
+      teens16,
+      teens20,
     ],
-    video: "/assets/teenspray4.mp4",
+    video: teenspray4,
   },
   {
     title: "Teens Pray Conference 2024",
     year: 2024,
     type: "conference",
-    coverImage: "/assets/tp6.png",
+    coverImage: tp6,
     icon: <FaUsers className="text-orange-500 text-3xl" />,
     description:
       "An unforgettable conference where teenagers encountered God deeply.",
     images: [
-      "/assets/pray3.jpg",
-      "/assets/pray5.jpg",
-      "/assets/pray7.jpg",
-      "/assets/pray9.jpg",
-      "/assets/pray11.jpg",
-      "/assets/pray12.jpg",
-      "/assets/pray14.jpg",
-      "/assets/pray15.jpg",
-      "/assets/pray16.jpg",
-      "/assets/pray17.jpg",
-      "/assets/pray18.jpg",
-      "/assets/pray19.jpg",
+      pray3,
+      pray5,
+      pray7,
+      pray9,
+      pray11,
+      pray12,
+      pray14,
+      pray15,
+      pray16,
+      pray17,
+      pray18,
+      pray19,
     ],
   },
   {
     title: "Children Holy Ghost Meeting",
     year: "all",
     type: "children",
-    coverImage: "/assets/tp3.png",
+    coverImage: tp3,
     icon: <FaChild className="text-orange-500 text-3xl" />,
     description: "Joyful, Spirit-filled meetings where children encounter God.",
-    video: "/assets/teenspray3.mp4",
+    video: teenspray3,
   },
   {
     title: "Evangelism Outreach",
     year: "all",
     type: "outreach",
-    coverImage: "/assets/tp2.png",
+    coverImage: tp2,
     icon: <FaUsers className="text-red-500 text-3xl" />,
     description:
       "Taking the gospel to communities through prayer, love, and action.",
-    video: "/assets/teenspray2.mp4",
+    video: teenspray2,
   },
 ];
 
@@ -87,7 +125,7 @@ export default function PastEvents() {
 
   return (
     <div className="font-sans bg-gray-50">
-      {/* ===== HERO ===== */}
+      {/* HERO */}
       <section className="py-28 text-center bg-gradient-to-br from-red-600 via-orange-500 to-red-700 text-white">
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-6"
@@ -102,7 +140,7 @@ export default function PastEvents() {
         </p>
       </section>
 
-      {/* ===== FILTERS ===== */}
+      {/* FILTERS */}
       <section className="py-10 bg-white">
         <div className="flex flex-wrap justify-center gap-4">
           {["all", 2025, 2024].map((year) => (
@@ -130,7 +168,7 @@ export default function PastEvents() {
         </div>
       </section>
 
-      {/* ===== EVENTS ===== */}
+      {/* EVENTS */}
       <section className="py-20 space-y-32">
         {filteredEvents.map((event, index) => (
           <LazyEventSection key={index} {...event} />
@@ -140,7 +178,7 @@ export default function PastEvents() {
   );
 }
 
-/* ================= FILTER BUTTON ================= */
+/* ================= HELPERS ================= */
 function FilterButton({ label, active, onClick }) {
   return (
     <button
@@ -156,26 +194,22 @@ function FilterButton({ label, active, onClick }) {
   );
 }
 
-/* ================= LAZY EVENT SECTION ================= */
 function LazyEventSection(props) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   return <div ref={ref}>{inView && <EventSection {...props} />}</div>;
 }
 
-/* ================= EVENT SECTION ================= */
 function EventSection({ title, description, images, icon, coverImage, video }) {
   const [showAll, setShowAll] = useState(false);
   const visibleImages = images ? (showAll ? images : images.slice(0, 8)) : [];
 
   return (
     <div className="max-w-7xl mx-auto px-6">
-      {/* ===== COVER ===== */}
+      {/* COVER */}
       <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl mb-14">
         <img
           src={coverImage}
           alt={title}
-          loading="lazy"
-          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -188,19 +222,18 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
         </div>
       </div>
 
-      {/* ===== VIDEO ===== */}
+      {/* VIDEO */}
       {video && (
         <div className="mb-10 flex justify-center">
           <video
             src={video}
             controls
-            className="w-full md:w-2/3 h-85 md:h-83 rounded-2xl shadow-lg"
-            preload="metadata"
+            className="w-full md:w-2/3 rounded-2xl shadow-lg"
           />
         </div>
       )}
 
-      {/* ===== GALLERY ===== */}
+      {/* GALLERY */}
       {visibleImages.length > 0 && (
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
@@ -208,20 +241,18 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {visibleImages.map((src, i) => (
+          {visibleImages.map((img, i) => (
             <img
               key={i}
-              src={src}
+              src={img}
               alt={title}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-56 object-cover rounded-2xl shadow group-hover:scale-105 transition duration-500"
+              className="w-full h-56 object-cover rounded-2xl shadow transition"
             />
           ))}
         </motion.div>
       )}
 
-      {/* ===== VIEW MORE ===== */}
+      {/* VIEW MORE */}
       {images && images.length > 8 && (
         <div className="text-center mt-10">
           <button

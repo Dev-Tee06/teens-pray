@@ -10,6 +10,12 @@ import {
   FaQuestionCircle,
 } from "react-icons/fa";
 
+/* ===== IMPORT IMAGES ===== */
+import tp6 from "../assets/tp6.png";
+import tp3 from "../assets/tp3.png";
+import tp2 from "../assets/tp2.png";
+import tp1 from "../assets/tp1.png";
+
 // ================= ANIMATED COUNTER =================
 function AnimatedCounter({ value, duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -67,7 +73,7 @@ export default function Programs() {
       <section className="py-24 bg-gray-50 relative z-10">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
           <ProgramCard
-            image="/assets/tp6.png"
+            image={tp6}
             icon={<FaUsers className="text-red-500 text-2xl" />}
             title="Teens Pray Conference"
             description="An annual conference igniting prayer, worship, and spiritual purpose in teenagers."
@@ -79,7 +85,7 @@ export default function Programs() {
           />
 
           <ProgramCard
-            image="/assets/tp3.png"
+            image={tp3}
             icon={<FaChild className="text-orange-500 text-2xl" />}
             title="Children Holy Ghost Meeting"
             description="A joyful, spirit-filled meeting where children encounter God in a safe and loving atmosphere."
@@ -91,7 +97,7 @@ export default function Programs() {
           />
 
           <ProgramCard
-            image="/assets/tp2.png"
+            image={tp2}
             icon={<FaHeartbeat className="text-red-500 text-2xl" />}
             title="Outreach & Healing"
             description="Community outreaches focused on prayer, healing, miracles, and sharing Christ’s love."
@@ -103,7 +109,7 @@ export default function Programs() {
           />
 
           <ProgramCard
-            image="/assets/tp1.png"
+            image={tp1}
             icon={<FaClock className="text-orange-500 text-2xl" />}
             title="6 Hours Prayer Charge"
             description="An intense prayer experience designed to deepen intimacy with God."
