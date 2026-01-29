@@ -228,7 +228,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
           <video
             src={video}
             controls
-            className="w-full md:w-2/3 rounded-2xl shadow-lg"
+            className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl shadow-lg"
           />
         </div>
       )}
