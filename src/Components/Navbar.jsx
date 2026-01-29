@@ -11,10 +11,10 @@ export default function Navbar() {
       : "text-black hover:text-orange-500";
 
   return (
-    <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between relative z-50">
       {/* Logo */}
       <div className="flex items-center gap-2">
-        <img src={teenlogo} alt="Logo" className="h-25 w-auto" />
+        <img src={teenlogo} alt="Logo" className="h-30 w-auto" />
       </div>
 
       {/* Desktop Links */}
@@ -29,7 +29,7 @@ export default function Navbar() {
           Programs
         </NavLink>
         <NavLink to="/past-events" className={linkClass}>
-          PastEvents
+          Past Events
         </NavLink>
         <NavLink to="/contact" className={linkClass}>
           Contact
@@ -37,39 +37,52 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Toggle */}
-      <button className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
-        ☰
+      <button
+        className="md:hidden text-2xl focus:outline-none"
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle Menu"
+      >
+        {open ? "✕" : "☰"}
       </button>
 
-      {/* Mobile Menu */}
-      {open && (
-        <div className="absolute top-16 left-0 w-full bg-white flex flex-col items-center gap-4 py-4 md:hidden">
-          <NavLink to="/" className={linkClass} onClick={() => setOpen(false)}>
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={linkClass}
-            onClick={() => setOpen(false)}
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/programs"
-            className={linkClass}
-            onClick={() => setOpen(false)}
-          >
-            Programs
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={linkClass}
-            onClick={() => setOpen(false)}
-          >
-            Contact
-          </NavLink>
-        </div>
-      )}
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${
+          open ? "max-h-screen py-4" : "max-h-0 py-0"
+        } flex flex-col items-center gap-4`}
+      >
+        <NavLink to="/" className={linkClass} onClick={() => setOpen(false)}>
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={linkClass}
+          onClick={() => setOpen(false)}
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/programs"
+          className={linkClass}
+          onClick={() => setOpen(false)}
+        >
+          Programs
+        </NavLink>
+        <NavLink
+          to="/past-events"
+          className={linkClass}
+          onClick={() => setOpen(false)}
+        >
+          Past Events
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={linkClass}
+          onClick={() => setOpen(false)}
+        >
+          Contact
+        </NavLink>
+      </div>
     </nav>
   );
 }
