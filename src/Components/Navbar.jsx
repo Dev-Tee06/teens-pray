@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex gap-6">
+      <div className="hidden mb-7 md:flex gap-6">
         <NavLink to="/" className={linkClass}>
           Home
         </NavLink>
@@ -38,7 +38,7 @@ export default function Navbar() {
 
       {/* Mobile Toggle */}
       <button
-        className="md:hidden text-2xl focus:outline-none"
+        className="md:hidden mb-8 text-2xl focus:outline-none"
         onClick={() => setOpen(!open)}
         aria-label="Toggle Menu"
       >
