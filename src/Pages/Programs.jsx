@@ -59,7 +59,7 @@ export default function Programs() {
         </motion.h1>
 
         <motion.p
-          className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto"
+          className="text-gray-700 text-xl md:text-xl max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -99,7 +99,7 @@ export default function Programs() {
           <ProgramCard
             image={tp2}
             icon={<FaHeartbeat className="text-red-500 text-2xl" />}
-            title="Outreach & Healing"
+            title="Healing & Miracle Outreach"
             description="Community outreaches focused on prayer, healing, miracles, and sharing Christ’s love."
             features={[
               "Healing & miracle prayers",
