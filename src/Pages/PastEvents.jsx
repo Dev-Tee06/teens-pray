@@ -11,6 +11,8 @@ import tp2 from "../assets/tp2.png";
 /* 2025 images */
 import teens1 from "../assets/teens1.jpg";
 import teens2 from "../assets/teens2.jpg";
+import teens3 from "../assets/teens3.jpg";
+import teens5 from "../assets/teens5.jpg";
 import teens6 from "../assets/teens6.jpg";
 import teens8 from "../assets/teens8.jpg";
 import teens10 from "../assets/teens10.jpg";
@@ -54,8 +56,10 @@ const events = [
     images: [
       teens1,
       teens2,
+      teens5,
       teens6,
       teens8,
+      teens3,
       teens10,
       teens11,
       teens12,
