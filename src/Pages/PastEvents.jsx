@@ -12,6 +12,7 @@ import tp2 from "../assets/tp2.png";
 import teens1 from "../assets/teens1.jpg";
 import teens2 from "../assets/teens2.jpg";
 import teens3 from "../assets/teens3.jpg";
+import teens4 from "../assets/teens4.jpg";
 import teens5 from "../assets/teens5.jpg";
 import teens6 from "../assets/teens6.jpg";
 import teens8 from "../assets/teens8.jpg";
@@ -22,6 +23,7 @@ import teens13 from "../assets/teens13.jpg";
 import teens14 from "../assets/teens14.jpg";
 import teens15 from "../assets/teens15.jpg";
 import teens16 from "../assets/teens16.jpg";
+import teens18 from "../assets/teens18.jpg";
 import teens20 from "../assets/teens20.jpg";
 
 /* 2024 images */
@@ -62,12 +64,14 @@ const events = [
       teens3,
       teens10,
       teens11,
+      teens4,
       teens12,
       teens13,
       teens14,
       teens15,
       teens16,
       teens20,
+      teens18,
     ],
     video: teenspray4,
   },
