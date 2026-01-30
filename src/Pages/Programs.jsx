@@ -75,7 +75,7 @@ export default function Programs() {
           <ProgramCard
             image={tp6}
             icon={<FaUsers className="text-red-500 text-2xl" />}
-            title="Teens Pray Conference"
+            title="Teens Pray"
             description="An annual conference igniting prayer, worship, and spiritual purpose in teenagers."
             features={[
               "Annual powerful gathering",
@@ -175,7 +175,10 @@ export default function Programs() {
           </h2>
 
           <div className="space-y-6 max-w-4xl mx-auto text-left">
-            <FAQ question="Who can attend?" answer="Teenagers aged 12–18." />
+            <FAQ
+              question="Who can attend?"
+              answer="Teenagers, Youths and Young Adults."
+            />
             <FAQ
               question="Is registration required?"
               answer="Yes, registration is required."

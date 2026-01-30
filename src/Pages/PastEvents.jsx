@@ -48,7 +48,17 @@ import teenspray2 from "../assets/teenspray2.mp4";
 /* ================= EVENTS DATA ================= */
 const events = [
   {
-    title: "Teens Pray Conference 2025",
+    title: "Teens Pray 2026",
+    year: 2026,
+    type: "conference",
+    coverImage: tp6,
+    icon: <FaFire className="text-red-500 text-3xl" />,
+    description:
+      "An upcoming gathering of teenagers for prayer, worship, and revival.",
+    images: [],
+  },
+  {
+    title: "Teens Pray  2025",
     year: 2025,
     type: "conference",
     coverImage: tp6,
@@ -76,7 +86,7 @@ const events = [
     video: teenspray4,
   },
   {
-    title: "Teens Pray Conference 2024",
+    title: "Teens Pray  2024",
     year: 2024,
     type: "conference",
     coverImage: tp6,
@@ -100,7 +110,7 @@ const events = [
   },
   {
     title: "Children Holy Ghost Meeting",
-    year: "all",
+    year: null,
     type: "children",
     coverImage: tp3,
     icon: <FaChild className="text-orange-500 text-3xl" />,
@@ -108,27 +118,25 @@ const events = [
     video: teenspray3,
   },
   {
-    title: "Evangelism Outreach",
-    year: "all",
+    title: "Healing & Miracle Outreach",
+    year: null,
     type: "outreach",
     coverImage: tp2,
     icon: <FaUsers className="text-red-500 text-3xl" />,
     description:
-      "Taking the gospel to communities through prayer, love, and action.",
+      "Outreaches focused on healing, miracles, and sharing the love of Christ.",
     video: teenspray2,
   },
 ];
 
 /* ================= PAGE ================= */
 export default function PastEvents() {
-  const [yearFilter, setYearFilter] = useState("all");
-  const [typeFilter, setTypeFilter] = useState("all");
+  const [filter, setFilter] = useState("all");
 
   const filteredEvents = events.filter((event) => {
-    const yearMatch =
-      yearFilter === "all" || event.year === yearFilter || event.year === "all";
-    const typeMatch = typeFilter === "all" || event.type === typeFilter;
-    return yearMatch && typeMatch;
+    if (filter === "all") return true;
+    if (typeof filter === "number") return event.year === filter;
+    return event.type === filter;
   });
 
   return (
@@ -151,28 +159,36 @@ export default function PastEvents() {
       {/* FILTERS */}
       <section className="py-10 bg-white">
         <div className="flex flex-wrap justify-center gap-4">
-          {["all", 2025, 2024].map((year) => (
-            <FilterButton
-              key={year}
-              active={yearFilter === year}
-              onClick={() => setYearFilter(year)}
-              label={year === "all" ? "All Years" : year}
-            />
-          ))}
-
-          {[
-            { label: "All Types", value: "all" },
-            { label: "Children", value: "children" },
-            { label: "Outreach", value: "outreach" },
-            { label: "Conference", value: "conference" },
-          ].map((t) => (
-            <FilterButton
-              key={t.value}
-              active={typeFilter === t.value}
-              onClick={() => setTypeFilter(t.value)}
-              label={t.label}
-            />
-          ))}
+          <FilterButton
+            label="All"
+            active={filter === "all"}
+            onClick={() => setFilter("all")}
+          />
+          <FilterButton
+            label="2026"
+            active={filter === 2026}
+            onClick={() => setFilter(2026)}
+          />
+          <FilterButton
+            label="2025"
+            active={filter === 2025}
+            onClick={() => setFilter(2025)}
+          />
+          <FilterButton
+            label="2024"
+            active={filter === 2024}
+            onClick={() => setFilter(2024)}
+          />
+          <FilterButton
+            label="Outreach"
+            active={filter === "outreach"}
+            onClick={() => setFilter("outreach")}
+          />
+          <FilterButton
+            label="Children"
+            active={filter === "children"}
+            onClick={() => setFilter("children")}
+          />
         </div>
       </section>
 
@@ -254,7 +270,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
               key={i}
               src={img}
               alt={title}
-              className="w-full h-56 object-cover rounded-2xl shadow transition"
+              className="w-full h-56 object-cover rounded-2xl shadow"
             />
           ))}
         </motion.div>

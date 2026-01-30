@@ -3,6 +3,8 @@ import Countdown from "../Components/Countdown";
 import { FaQuoteLeft, FaQuestionCircle } from "react-icons/fa";
 import { useState } from "react";
 
+const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
+
 export default function Home() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -10,7 +12,7 @@ export default function Home() {
     {
       question: "Who can participate in Teens-Pray?",
       answer:
-        "Teens from ages 13-19 who desire to grow spiritually, connect with peers, and deepen their prayer life can participate.",
+        "Teenagers, Youth and Young Adults who desire to grow spiritually, connect with peers, and deepen their prayer life can participate.",
     },
     {
       question: "Do I need to register in advance?",
@@ -20,7 +22,7 @@ export default function Home() {
     {
       question: "Are there opportunities for volunteers?",
       answer:
-        "Absolutely! Teens-Pray encourages youth to volunteer in various capacities including worship, mentorship, and event support.",
+        "Absolutely! Teens-Pray encourages everyone who Loves God to volunteer in various capacities including worship, Ushering, Media & Publicity, Auditorium Support, Protocol.",
     },
   ];
 
@@ -85,9 +87,16 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              <button className="px-8 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition">
+              {/* JOIN WHATSAPP */}
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition inline-block"
+              >
                 Join the Movement
-              </button>
+              </a>
+
               <button className="px-8 py-3 rounded-full border border-red-500 text-red-600 font-semibold hover:bg-red-50 transition">
                 Learn More
               </button>
@@ -234,13 +243,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <motion.h2
-            className="text-4xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.h2 className="text-4xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">
             Anticipate <span className="text-white/90">Teens Pray 2026</span>
           </motion.h2>
 
@@ -249,7 +252,6 @@ export default function Home() {
           <motion.div
             className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-xl inline-block"
             whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 120 }}
           >
             <p className="text-xl font-semibold mb-2">
               📅 Year: <span className="text-orange-400">2026</span>
@@ -258,9 +260,14 @@ export default function Home() {
               🔥 Theme: <span className="text-red-400">ANTICIPATE</span>
             </p>
 
-            <button className="px-10 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 font-semibold hover:scale-105 transition">
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 font-semibold hover:scale-105 transition inline-block"
+            >
               Stay Updated
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </section>
