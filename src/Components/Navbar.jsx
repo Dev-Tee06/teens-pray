@@ -12,21 +12,13 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between relative z-50">
-      {/* Logo with glow */}
-      <div className="flex items-center gap-2 relative">
-        {/* Glow behind logo */}
-        <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-orange-500 via-red-600 to-yellow-400 opacity-40 blur-3xl z-0"></div>
-        {/* Inner bright circle */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-400 via-red-500 to-yellow-300 z-10"></div>
-        <img
-          src={teenlogo}
-          alt="Logo"
-          className="relative h-34 w-34 object-cover rounded-full border-2 border-red-500 shadow-[0_0_20px_rgba(255,99,71,0.8)] z-20"
-        />
+      {/* Logo */}
+      <div className="flex items-center gap-2">
+        <img src={teenlogo} alt="Logo" className="h-30 w-auto" />
       </div>
 
       {/* Desktop Links */}
-      <div className="hidden md:flex gap-6">
+      <div className="hidden mb-7 md:flex gap-6">
         <NavLink to="/" className={linkClass}>
           Home
         </NavLink>
@@ -46,7 +38,7 @@ export default function Navbar() {
 
       {/* Mobile Toggle */}
       <button
-        className="md:hidden text-2xl focus:outline-none"
+        className="md:hidden mb-8 text-2xl focus:outline-none"
         onClick={() => setOpen(!open)}
         aria-label="Toggle Menu"
       >
