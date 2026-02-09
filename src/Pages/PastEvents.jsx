@@ -4,9 +4,11 @@ import { FaFire, FaUsers, FaChild } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
 /* ===== IMPORT ASSETS ===== */
+import tp7 from "../assets/tp7.jpg";
 import tp6 from "../assets/tp6.png";
 import tp3 from "../assets/tp3.png";
 import tp2 from "../assets/tp2.png";
+import teens from "../assets/teens2024.jpg";
 
 /* 2025 images */
 import teens1 from "../assets/teens1.jpg";
@@ -51,7 +53,7 @@ const events = [
     title: "Teens Pray 2026",
     year: 2026,
     type: "conference",
-    coverImage: tp6,
+    coverImage: tp7,
     icon: <FaFire className="text-red-500 text-3xl" />,
     description:
       "An upcoming gathering of teenagers for prayer, worship, and revival.",
@@ -89,7 +91,7 @@ const events = [
     title: "Teens Pray  2024",
     year: 2024,
     type: "conference",
-    coverImage: tp6,
+    coverImage: teens,
     icon: <FaUsers className="text-orange-500 text-3xl" />,
     description:
       "An unforgettable conference where teenagers encountered God deeply.",

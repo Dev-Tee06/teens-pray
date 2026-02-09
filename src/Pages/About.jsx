@@ -8,10 +8,11 @@ import {
   FaHeartbeat,
   FaClock,
   FaUsers,
+  FaQuoteLeft,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-// Animated Counter Component
+/* ================= Animated Counter ================= */
 function AnimatedCounter({ value, duration = 2000 }) {
   const [count, setCount] = useState(0);
 
@@ -38,29 +39,29 @@ export default function About() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="overflow-hidden font-sans relative">
-      {/* Floating Orbs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-red-300 rounded-full blur-3xl opacity-30 animate-spin-slow"></div>
-      <div className="absolute top-20 -right-32 w-96 h-96 bg-orange-300 rounded-full blur-3xl opacity-30 animate-pulse-slow"></div>
+    <div className="relative overflow-hidden font-sans">
+      {/* Floating Effects */}
+      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] bg-red-400/30 rounded-full blur-3xl animate-spin-slow" />
+      <div className="absolute top-40 -right-40 w-[30rem] h-[30rem] bg-orange-400/30 rounded-full blur-3xl animate-pulse-slow" />
 
       {/* ================= WHO WE ARE ================= */}
-      <section className="py-24 bg-gradient-to-br from-orange-50 via-white to-red-50 relative z-10">
+      <section className="relative py-28 bg-gradient-to-br from-orange-50 via-white to-red-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500"
-            initial={{ opacity: 0, y: -20 }}
+            className="text-4xl md:text-6xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500"
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
           >
             Who We Are
           </motion.h1>
+
           <motion.p
-            className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.3 }}
           >
             Teens-Pray is a faith-driven movement that empowers teenagers to
             deepen their relationship with God, ignite prayer, worship, and
@@ -70,26 +71,64 @@ export default function About() {
         </div>
       </section>
 
+      {/* ================= IMPACT ================= */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
+          {[
+            {
+              icon: <FaUsers />,
+              value: 500,
+              label: "People Reached",
+            },
+            {
+              icon: <FaHeartbeat />,
+              value: 100,
+              label: "Healings Recorded",
+            },
+            {
+              icon: <FaFire />,
+              value: 50,
+              label: "Holy Ghost Baptisms",
+            },
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              className="bg-gradient-to-br from-red-50 to-orange-50 rounded-3xl p-10 shadow-lg"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-4xl text-red-500 mb-4 mx-auto">
+                {stat.icon}
+              </div>
+              <h3 className="text-4xl font-extrabold text-gray-800">
+                <AnimatedCounter value={stat.value} />+
+              </h3>
+              <p className="text-gray-600 mt-3 font-medium">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* ================= VISION & MISSION ================= */}
-      <section className="py-24 bg-gray-50 relative z-10">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400"
+            className="text-3xl md:text-4xl font-bold mb-14 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
           >
             Vision & Mission
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {/* Mission */}
-            <motion.div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-red-500 flex items-center gap-2">
+            <motion.div className="bg-white/60 backdrop-blur-xl border border-white rounded-3xl p-10 shadow-xl">
+              <h3 className="text-2xl font-semibold mb-6 text-red-500 flex items-center gap-3">
                 <FaFire /> Our Mission
               </h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <ul className="space-y-4 text-gray-700">
                 <li>
                   <FaPrayingHands className="inline mr-2 text-orange-400" />
                   Empower teens to deepen their relationship with God.
@@ -110,11 +149,11 @@ export default function About() {
             </motion.div>
 
             {/* Vision */}
-            <motion.div className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-orange-500 flex items-center gap-2">
+            <motion.div className="bg-white/60 backdrop-blur-xl border border-white rounded-3xl p-10 shadow-xl">
+              <h3 className="text-2xl font-semibold mb-6 text-orange-500 flex items-center gap-3">
                 <FaGlobe /> Our Vision
               </h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <ul className="space-y-4 text-gray-700">
                 <li>
                   <FaPrayingHands className="inline mr-2 text-red-500" />
                   Awaken a genuine culture of prayer.
@@ -138,54 +177,86 @@ export default function About() {
       </section>
 
       {/* ================= OUR PROGRAMS ================= */}
-      <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white">
+      <section className="py-28 bg-gradient-to-br from-black via-gray-900 to-black text-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-extrabold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">
+          <motion.h2 className="text-4xl md:text-5xl font-extrabold mb-14 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">
             Our Programs
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8">
-              <FaChild className="text-red-400 text-3xl mb-3" />
-              <h3 className="font-semibold">Children Holy Ghost Meeting</h3>
-            </div>
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8">
-              <FaHeartbeat className="text-orange-400 text-3xl mb-3" />
-              <h3 className="font-semibold">Healing & Miracle Outreach</h3>
-            </div>
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8">
-              <FaClock className="text-red-400 text-3xl mb-3" />
-              <h3 className="font-semibold">6 Hours Prayer Charge</h3>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: <FaChild />,
+                title: "Children Holy Ghost Meeting",
+                desc: "Spirit-filled gatherings where children encounter God early.",
+              },
+              {
+                icon: <FaHeartbeat />,
+                title: "Healing & Miracle Outreach",
+                desc: "Bringing the power of Jesus to communities in need.",
+              },
+              {
+                icon: <FaClock />,
+                title: "6 Hours Prayer Charge",
+                desc: "Intense prayer sessions igniting spiritual fire.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white/10 backdrop-blur-xl rounded-3xl p-10 shadow-xl"
+              >
+                <div className="text-4xl text-red-400 mb-5">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-gray-300">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* ================= TESTIMONY ================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <FaQuoteLeft className="text-4xl text-red-500 mx-auto mb-6" />
+          <p className="text-xl italic text-gray-700 leading-relaxed">
+            “Through Teens-Pray, my prayer life was revived and my passion for
+            God was restored. I now stand boldly for Christ in my school.”
+          </p>
+          <h4 className="mt-6 font-semibold text-red-500">
+            — A Teen Participant
+          </h4>
+        </div>
+      </section>
+
       {/* ================= GET INVOLVED ================= */}
-      <section className="py-24 bg-gradient-to-br from-red-600 via-orange-500 to-red-600 text-white text-center">
-        <h2 className="text-4xl font-extrabold mb-6">
+      <section className="py-28 bg-gradient-to-br from-red-600 via-orange-500 to-red-600 text-white text-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-8">
           Join the Teens-Pray Movement
         </h2>
+        <p className="max-w-2xl mx-auto mb-10 text-lg opacity-90">
+          Be part of a generation committed to prayer, purpose, and impact.
+        </p>
 
         <div className="relative inline-block">
           <button
             onClick={() => setOpen(!open)}
-            className="px-12 py-4 rounded-full bg-white text-red-600 font-semibold shadow-lg"
+            className="px-14 py-4 rounded-full bg-white text-red-600 font-semibold shadow-xl hover:scale-105 transition"
           >
             Get Involved
           </button>
 
           {open && (
-            <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-white text-black rounded-xl shadow-xl">
+            <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-64 bg-white text-black rounded-2xl shadow-2xl overflow-hidden">
               <a
                 href="/outreach"
-                className="block px-6 py-3 hover:bg-orange-100"
+                className="block px-6 py-4 hover:bg-orange-100"
               >
                 Outreach
               </a>
               <a
                 href="/children"
-                className="block px-6 py-3 hover:bg-orange-100"
+                className="block px-6 py-4 hover:bg-orange-100"
               >
                 Children Ministry
               </a>

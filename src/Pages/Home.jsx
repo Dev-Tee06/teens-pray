@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import Countdown from "../Components/Countdown";
-import { FaQuoteLeft, FaQuestionCircle } from "react-icons/fa";
+import {
+  FaQuoteLeft,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaFire,
+  FaQuestionCircle,
+} from "react-icons/fa";
+import tp7 from "../assets/tp7.jpg";
 import { useState } from "react";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
@@ -233,43 +240,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= ANTICIPATE TEENS PRAY 2026 ================= */}
-      <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-orange-500/20 blur-3xl"></div>
-        <motion.div
-          className="relative max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <motion.h2 className="text-4xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">
-            Anticipate <span className="text-white/90">Teens Pray 2026</span>
-          </motion.h2>
+      {/* ================= UPCOMING PROGRAM (GLASS HERO) ================= */}
+      <section className="relative py-32 bg-gradient-to-br from-black via-red-600 to-orange-500">
+        {/* Glow Orbs */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-500/30 blur-3xl rounded-full" />
+        <div className="absolute top-40 -right-32 w-96 h-96 bg-red-500/30 blur-3xl rounded-full" />
 
-          <Countdown />
-
+        <div className="relative max-w-6xl mx-auto px-6">
           <motion.div
-            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 shadow-xl inline-block"
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="
+                    grid md:grid-cols-2 gap-16 items-center
+                    bg-white/10 backdrop-blur-2xl
+                    border border-white/20
+                    rounded-[2.5rem]
+                    p-10 md:p-14
+                    shadow-[0_20px_80px_rgba(0,0,0,0.6)]
+                  "
           >
-            <p className="text-xl font-semibold mb-2">
-              📅 Year: <span className="text-orange-400">2026</span>
-            </p>
-            <p className="text-xl font-semibold mb-6">
-              🔥 Theme: <span className="text-red-400">ANTICIPATE</span>
-            </p>
+            {/* IMAGE */}
+            <div className="relative w-full order-1 md:order-2">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-xl" />
+              <img
+                src={tp7}
+                alt="TeensPray 2026"
+                className="relative rounded-2xl shadow-2xl 
+                        md:h-[500px] h-[350px] sm:w-[290px] sm:h-[450px] 
+                        md:w-[300px]"
+              />
+            </div>
 
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-10 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 font-semibold hover:scale-105 transition inline-block"
-            >
-              Stay Updated
-            </a>
+            {/* TEXT */}
+            <div className="text-white order-2 md:order-1">
+              <span className="inline-block mb-5 px-5 py-2 rounded-full bg-white/15 border border-white/30 text-sm font-semibold">
+                UPCOMING PROGRAM
+              </span>
+
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+                TeensPray 2026
+              </h2>
+
+              <p className="text-white/90 text-lg mb-8 leading-relaxed">
+                A powerful annual gathering igniting prayer, worship, and
+                purpose in teenagers—raising a generation on fire for God.
+              </p>
+
+              <div className="flex flex-wrap gap-6 mb-10 text-white/90">
+                <div className="flex items-center gap-2">
+                  <FaCalendarAlt />
+                  <span>2026</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaMapMarkerAlt />
+                  <span>To Be Announced</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaFire />
+                  <span>Prayer • Worship • Word</span>
+                </div>
+              </div>
+
+              {/* COUNTDOWN */}
+              <div className="mb-10">
+                <Countdown />
+              </div>
+
+              {/* REGISTER CTA */}
+              <div className="flex justify-center md:justify-start">
+                <a
+                  href="https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                          relative inline-flex items-center justify-center
+                          px-10 py-3 rounded-full
+                          text-lg font-extrabold tracking-wide
+                          text-black
+                          bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600
+                          shadow-[0_0_35px_rgba(255,165,0,0.8)]
+                          hover:shadow-[0_0_55px_rgba(255,80,0,1)]
+                          hover:scale-105
+                          transition-all duration-300
+                          animate-pulse
+                        "
+                >
+                  🔥Stay Updated.
+                </a>
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* ================= TESTIMONIES ================= */}
