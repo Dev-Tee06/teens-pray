@@ -1,56 +1,61 @@
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import logo from "../assets/teenslogo.png"; // Teens-Pray logo
+import logo from "../assets/teenslogo.png";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-black via-slate-900 to-red-900 text-white pt-20 pb-10 overflow-hidden">
-      {/* Top Glow Divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-orange-500/60 to-transparent" />
+    <footer className="relative bg-[#0a0a0a] text-white pt-24 pb-12 overflow-hidden mt-20 border-t border-white/5">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-0 left-1/4 w-[40rem] h-[20rem] bg-orange-600/20 rounded-full blur-[120px] -z-10 pointer-events-none translate-y-[-50%]" />
+      <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-red-800/20 rounded-full blur-[100px] -z-10 pointer-events-none translate-y-[50%]" />
 
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Main Content */}
-        <div className="grid gap-12 md:grid-cols-3 backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10 relative z-10">
-          {/* BRANDING */}
-          <div className="flex flex-col gap-4 items-center md:items-start">
-            <div className="relative">
-              {/* Bright inner background circle */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-400 via-red-500 to-yellow-400 z-0"></div>
-              {/* Glow behind logo */}
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-orange-400 via-red-500 to-orange-500 opacity-50 blur-3xl z-10"></div>
-              <img
-                src={logo}
-                alt="Teens-Pray"
-                className="relative h-40 w-40 object-cover rounded-full border-4 border-yellow-400 shadow-[0_0_25px_rgba(255,165,0,0.7)] z-20"
-              />
+      {/* Top Divider with Gradient Pulse */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+          {/* BRAND COLUMN */}
+          <div className="md:col-span-5 flex flex-col items-center md:items-start space-y-6">
+            <div className="relative group inline-block">
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-600 rounded-full opacity-40 group-hover:opacity-75 blur-xl transition duration-500"></div>
+              <div className="relative p-1 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+                <img
+                  src={logo}
+                  alt="Teens-Pray Logo"
+                  className="h-28 w-28 md:h-32 md:w-32 object-cover rounded-full"
+                />
+              </div>
             </div>
-            <p className="mt-2 text-white/70 text-sm leading-relaxed max-w-sm text-center md:text-left">
-              Empowering teens to deepen their relationship with God and shine
-              as lights of Christ in their generation.
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm text-center md:text-left">
+              Teens-Pray is a faith-driven movement empowering exactly the generation of teenagers to deepen their relationship with God and shine as brilliant lights of Christ.
             </p>
           </div>
 
-          {/* CONTACT */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-white mb-4">
+          {/* CONTACT LINKS */}
+          <div className="md:col-span-4 flex flex-col items-center md:items-start space-y-6">
+            <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 tracking-wide uppercase">
               Get in Touch
             </h3>
-
-            <div className="space-y-3 text-white/70 text-sm">
+            <div className="space-y-4 text-gray-300 w-full flex flex-col items-center md:items-start text-sm md:text-base">
               <a
                 href="mailto:teenspray01@gmail.com"
-                className="flex items-center gap-3 hover:text-orange-400 transition"
+                className="group flex items-center gap-3 hover:text-white transition-colors p-2 -ml-2 rounded-lg hover:bg-white/5"
               >
-                <FaEnvelope className="text-orange-400" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-orange-500/20">
+                  <FaEnvelope className="text-orange-400" />
+                </div>
                 teenspray01@gmail.com
               </a>
 
               <a
                 href="tel:09036857626"
-                className="flex items-center gap-3 hover:text-orange-400 transition"
+                className="group flex items-center gap-3 hover:text-white transition-colors p-2 -ml-2 rounded-lg hover:bg-white/5"
               >
-                <FaWhatsapp className="text-orange-400" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-orange-500/20">
+                  <FaWhatsapp className="text-orange-400" />
+                </div>
                 09036857626
               </a>
 
@@ -58,46 +63,42 @@ export default function Footer() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 hover:text-orange-400 transition"
+                className="group flex items-center gap-3 hover:text-white transition-colors p-2 -ml-2 rounded-lg hover:bg-white/5"
               >
-                <FaWhatsapp className="text-orange-400" />
-                Join WhatsApp
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform group-hover:bg-orange-500/20">
+                  <FaWhatsapp className="text-orange-400" />
+                </div>
+                Join WhatsApp Group
               </a>
             </div>
           </div>
 
-          {/* SOCIALS */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-semibold text-white mb-4">
-              Connect With Us
+          {/* SOCIALS & NEWSLETTER */}
+          <div className="md:col-span-3 flex flex-col items-center md:items-start space-y-6">
+            <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 tracking-wide uppercase">
+              Follow Us
             </h3>
-
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              Stay updated with our latest events and inspiration.
+            </p>
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/teenspray01"
                 target="_blank"
                 rel="noreferrer"
-                className="w-11 h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-orange-400 hover:text-black transition"
+                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gradient-to-tr hover:from-orange-500 hover:to-red-500 hover:text-white hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all duration-300 group"
               >
-                <FaInstagram className="text-xl" />
+                <FaInstagram className="text-2xl text-gray-300 group-hover:text-white group-hover:scale-110 transition-transform" />
               </a>
             </div>
-
-            <p className="mt-4 text-white/50 text-xs max-w-xs text-center md:text-left">
-              Follow for updates, inspiration, and Teens-Pray community events.
-            </p>
           </div>
         </div>
 
-        {/* BOTTOM */}
-        <div className="mt-12 text-center text-white/50 text-sm">
-          © {new Date().getFullYear()} Teens-Pray. All rights reserved.
+        {/* BOTTOM COPYRIGHT */}
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 text-sm font-medium">
+          <p>© {new Date().getFullYear()} Teens-Pray. All rights reserved.</p>
         </div>
       </div>
-
-      {/* Optional Background Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-red-900/20 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
     </footer>
   );
 }

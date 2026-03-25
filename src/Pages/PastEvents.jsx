@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaFire, FaUsers, FaChild } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaFire, FaUsers, FaChild, FaPlay, FaImage } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
 /* ===== IMPORT ASSETS ===== */
@@ -54,60 +54,33 @@ const events = [
     year: 2026,
     type: "conference",
     coverImage: tp7,
-    icon: <FaFire className="text-red-500 text-3xl" />,
-    description:
-      "An upcoming gathering of teenagers for prayer, worship, and revival.",
+    icon: <FaFire className="text-orange-500 text-4xl" />,
+    description: "An upcoming gathering of teenagers for prayer, worship, and revival.",
     images: [],
   },
   {
-    title: "Teens Pray  2025",
+    title: "Teens Pray 2025",
     year: 2025,
     type: "conference",
     coverImage: tp6,
-    icon: <FaFire className="text-red-500 text-3xl" />,
-    description:
-      "A powerful gathering marked by intense prayer, worship, and spiritual transformation.",
+    icon: <FaFire className="text-orange-500 text-4xl" />,
+    description: "A powerful gathering marked by intense prayer, worship, and spiritual transformation.",
     images: [
-      teens1,
-      teens2,
-      teens5,
-      teens6,
-      teens8,
-      teens3,
-      teens10,
-      teens11,
-      teens4,
-      teens12,
-      teens13,
-      teens14,
-      teens15,
-      teens16,
-      teens20,
-      teens18,
+      teens1, teens2, teens5, teens6, teens8, teens3, teens10, teens11, teens4,
+      teens12, teens13, teens14, teens15, teens16, teens20, teens18,
     ],
     video: teenspray4,
   },
   {
-    title: "Teens Pray  2024",
+    title: "Teens Pray 2024",
     year: 2024,
     type: "conference",
     coverImage: teens,
-    icon: <FaUsers className="text-orange-500 text-3xl" />,
-    description:
-      "An unforgettable conference where teenagers encountered God deeply.",
+    icon: <FaUsers className="text-amber-500 text-4xl" />,
+    description: "An unforgettable conference where teenagers encountered God deeply.",
     images: [
-      pray3,
-      pray5,
-      pray7,
-      pray9,
-      pray11,
-      pray12,
-      pray14,
-      pray15,
-      pray16,
-      pray17,
-      pray18,
-      pray19,
+      pray3, pray5, pray7, pray9, pray11, pray12, pray14, pray15, pray16, pray17,
+      pray18, pray19,
     ],
   },
   {
@@ -115,7 +88,7 @@ const events = [
     year: null,
     type: "children",
     coverImage: tp3,
-    icon: <FaChild className="text-orange-500 text-3xl" />,
+    icon: <FaChild className="text-amber-500 text-4xl" />,
     description: "Joyful, Spirit-filled meetings where children encounter God.",
     video: teenspray3,
   },
@@ -124,9 +97,8 @@ const events = [
     year: null,
     type: "outreach",
     coverImage: tp2,
-    icon: <FaUsers className="text-red-500 text-3xl" />,
-    description:
-      "Outreaches focused on healing, miracles, and sharing the love of Christ.",
+    icon: <FaUsers className="text-red-500 text-4xl" />,
+    description: "Outreaches focused on healing, miracles, and sharing the love of Christ.",
     video: teenspray2,
   },
 ];
@@ -142,63 +114,74 @@ export default function PastEvents() {
   });
 
   return (
-    <div className="font-sans bg-gray-50">
+    <div className="font-sans bg-[#fafafa]">
       {/* HERO */}
-      <section className="py-28 text-center bg-gradient-to-br from-red-600 via-orange-500 to-red-700 text-white">
-        <motion.h1
-          className="text-5xl md:text-6xl font-extrabold mb-6"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Past Events
-        </motion.h1>
-        <p className="max-w-3xl mx-auto text-lg text-white/90">
-          Moments of prayer, worship, and kingdom impact.
-        </p>
+      <section className="relative pt-48 pb-24 text-center bg-black overflow-hidden">
+        {/* Abstract Background */}
+        <div className="absolute inset-0 z-0">
+           <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-[#fafafa] opacity-90"></div>
+           <div className="absolute top-[-50%] left-[-20%] w-[60%] h-[150%] bg-orange-600/20 blur-[150px] rotate-[-20deg]"></div>
+           <div className="absolute top-[-20%] right-[-20%] w-[60%] h-[150%] bg-red-600/20 blur-[150px] rotate-[20deg]"></div>
+           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-block mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold tracking-widest uppercase shadow-sm"
+          >
+            Gallery & Memories
+          </motion.div>
+
+          <motion.h1
+            className="text-5xl md:text-7xl font-black mb-8 text-white tracking-tight"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            Our Past <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Events</span>
+          </motion.h1>
+          
+          <motion.p 
+            className="max-w-2xl mx-auto text-xl font-medium text-gray-300 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            A visual journey through powerful moments of prayer, worship, and kingdom impact that shaped a generation.
+          </motion.p>
+        </div>
       </section>
 
       {/* FILTERS */}
-      <section className="py-10 bg-white">
-        <div className="flex flex-wrap justify-center gap-4">
-          <FilterButton
-            label="All"
-            active={filter === "all"}
-            onClick={() => setFilter("all")}
-          />
-          <FilterButton
-            label="2026"
-            active={filter === 2026}
-            onClick={() => setFilter(2026)}
-          />
-          <FilterButton
-            label="2025"
-            active={filter === 2025}
-            onClick={() => setFilter(2025)}
-          />
-          <FilterButton
-            label="2024"
-            active={filter === 2024}
-            onClick={() => setFilter(2024)}
-          />
-          <FilterButton
-            label="Outreach"
-            active={filter === "outreach"}
-            onClick={() => setFilter("outreach")}
-          />
-          <FilterButton
-            label="Children"
-            active={filter === "children"}
-            onClick={() => setFilter("children")}
-          />
+      <section className="py-12 bg-white border-b border-gray-100 shadow-sm sticky top-20 z-40">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 px-6 max-w-7xl mx-auto">
+          <FilterButton label="All Experiences" active={filter === "all"} onClick={() => setFilter("all")} />
+          <FilterButton label="2026" active={filter === 2026} onClick={() => setFilter(2026)} />
+          <FilterButton label="2025" active={filter === 2025} onClick={() => setFilter(2025)} />
+          <FilterButton label="2024" active={filter === 2024} onClick={() => setFilter(2024)} />
+          <FilterButton label="Outreach" active={filter === "outreach"} onClick={() => setFilter("outreach")} />
+          <FilterButton label="Children" active={filter === "children"} onClick={() => setFilter("children")} />
         </div>
       </section>
 
       {/* EVENTS */}
-      <section className="py-20 space-y-32">
-        {filteredEvents.map((event, index) => (
-          <LazyEventSection key={index} {...event} />
-        ))}
+      <section className="py-24 space-y-40">
+        <AnimatePresence>
+          {filteredEvents.map((event, index) => (
+            <motion.div
+              layout
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.5 }}
+            >
+              <LazyEventSection {...event} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </section>
     </div>
   );
@@ -209,10 +192,10 @@ function FilterButton({ label, active, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`px-5 py-2 rounded-full font-semibold transition ${
+      className={`px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-all duration-300 ${
         active
-          ? "bg-red-600 text-white shadow-md"
-          : "bg-gray-100 hover:bg-gray-200"
+          ? "bg-gray-900 text-white shadow-[0_4px_14px_rgba(0,0,0,0.2)] scale-105"
+          : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
       }`}
     >
       {label}
@@ -232,60 +215,90 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
   return (
     <div className="max-w-7xl mx-auto px-6">
       {/* COVER */}
-      <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl mb-14">
+      <div className="relative h-80 md:h-[400px] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] mb-16 group">
         <img
           src={coverImage}
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-          {icon}
-          <h2 className="text-4xl md:text-5xl font-extrabold mt-4 mb-2">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center text-white p-10 md:p-16">
+          <div className="bg-white/10 backdrop-blur-md p-4 rounded-3xl mb-6 shadow-2xl border border-white/20">
+             {icon}
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 drop-shadow-md">
             {title}
           </h2>
-          <p className="max-w-3xl text-white/90">{description}</p>
+          <p className="max-w-3xl text-lg md:text-xl font-medium text-white/90 drop-shadow">
+            {description}
+          </p>
         </div>
       </div>
 
       {/* VIDEO */}
       {video && (
-        <div className="mb-10 flex justify-center">
-          <video
-            src={video}
-            controls
-            className="w-full md:w-1/2 h-64 md:h-80 rounded-2xl shadow-lg"
-          />
+        <div className="mb-16 flex justify-center">
+          <div className="relative w-full md:w-2/3 lg:w-1/2 rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-gray-200 bg-white p-2 group">
+             <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase rounded-full tracking-widest">
+                <FaPlay className="text-orange-500" /> Event Highlight
+             </div>
+             <video
+               src={video}
+               controls
+               className="w-full h-72 md:h-96 rounded-[1.5rem] object-cover bg-black"
+             />
+          </div>
         </div>
       )}
 
       {/* GALLERY */}
       {visibleImages.length > 0 && (
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {visibleImages.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={title}
-              className="w-full h-56 object-cover rounded-2xl shadow"
-            />
-          ))}
-        </motion.div>
+        <div>
+          <div className="flex items-center gap-3 mb-8">
+             <FaImage className="text-2xl text-orange-500" />
+             <h3 className="text-3xl font-black text-gray-900">Event Gallery</h3>
+          </div>
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <AnimatePresence>
+               {visibleImages.map((img, i) => (
+                 <motion.div
+                   layout
+                   key={i}
+                   initial={{ opacity: 0, scale: 0.9 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   exit={{ opacity: 0, scale: 0.9 }}
+                   transition={{ duration: 0.4 }}
+                   className="relative group overflow-hidden rounded-3xl shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
+                 >
+                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+                   <img
+                     src={img}
+                     alt={title}
+                     className="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-700"
+                   />
+                 </motion.div>
+               ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
       )}
 
-      {/* VIEW MORE */}
+      {/* VIEW MORE CTA */}
       {images && images.length > 8 && (
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-8 py-3 rounded-full bg-red-600 text-white font-semibold hover:bg-red-700 transition"
+            className="group relative inline-flex items-center justify-center px-10 py-4 rounded-full font-bold text-gray-900 border-2 border-gray-900 overflow-hidden hover:text-white transition-colors duration-300"
           >
-            {showAll ? "Show Less" : "View More"}
+            <div className="absolute inset-0 bg-gray-900 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-300 z-0"></div>
+            <span className="relative z-10">
+               {showAll ? "View Less" : "Load Experience Gallery"}
+            </span>
           </button>
         </div>
       )}

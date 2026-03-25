@@ -32,47 +32,44 @@ export default function Countdown() {
   const formatNumber = (num) => num.toString().padStart(2, "0");
 
   const units = [
-    {
-      label: "Days",
-      value: timeLeft.days,
-      color: "from-red-600 to-orange-500",
-    },
-    {
-      label: "Hours",
-      value: timeLeft.hours,
-      color: "from-orange-400 to-red-400",
-    },
-    {
-      label: "Minutes",
-      value: timeLeft.minutes,
-      color: "from-red-500 to-orange-500",
-    },
-    {
-      label: "Seconds",
-      value: timeLeft.seconds,
-      color: "from-orange-300 to-red-400",
-    },
+    { label: "Days", value: timeLeft.days, color: "from-red-600 to-orange-500" },
+    { label: "Hours", value: timeLeft.hours, color: "from-orange-500 to-amber-500" },
+    { label: "Minutes", value: timeLeft.minutes, color: "from-amber-500 to-yellow-400" },
+    { label: "Seconds", value: timeLeft.seconds, color: "from-yellow-400 to-red-400" },
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-6">
-      {units.map((unit) => (
+    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+      {units.map((unit, i) => (
         <motion.div
           key={unit.label}
-          className={`w-24 md:w-28 h-32 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform`}
-          whileHover={{ scale: 1.05 }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          whileHover={{ y: -5, scale: 1.02 }}
+          className="relative group w-24 sm:w-28 md:w-32 h-32 sm:h-36"
         >
-          <div
-            className={`w-full h-1 rounded-t-xl mb-3 bg-gradient-to-r ${unit.color}`}
-          ></div>
-          <div className="text-3xl md:text-4xl font-bold text-white">
-            {formatNumber(unit.value)}
-          </div>
-          <div className="text-gray-200 uppercase text-sm mt-1">
-            {unit.label}
+          {/* Glow Effect */}
+          <div className={`absolute -inset-0.5 bg-gradient-to-br ${unit.color} rounded-[2rem] opacity-30 group-hover:opacity-60 blur-md transition duration-500`}></div>
+          
+          {/* Card Engine */}
+          <div className="relative w-full h-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col items-center justify-center overflow-hidden">
+            {/* Top highlight line */}
+            <div className={`absolute top-0 w-full h-1 bg-gradient-to-r ${unit.color} opacity-80`}></div>
+            
+            <motion.div 
+              key={unit.value}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              className="text-4xl sm:text-5xl font-extrabold text-white tracking-tighter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+            >
+              {formatNumber(unit.value)}
+            </motion.div>
+            
+            <div className="text-white/70 uppercase text-xs sm:text-sm font-semibold tracking-widest mt-2">
+              {unit.label}
+            </div>
           </div>
         </motion.div>
       ))}

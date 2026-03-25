@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Countdown from "../Components/Countdown";
 import {
   FaQuoteLeft,
@@ -6,6 +6,7 @@ import {
   FaMapMarkerAlt,
   FaFire,
   FaQuestionCircle,
+  FaChevronDown,
 } from "react-icons/fa";
 import tp7 from "../assets/tp7.jpg";
 import { useState } from "react";
@@ -54,34 +55,46 @@ export default function Home() {
   return (
     <div className="overflow-hidden font-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative pt-10 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-red-50">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-red-300 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute top-20 -right-32 w-96 h-96 bg-orange-300 rounded-full blur-3xl opacity-30"></div>
+      <section className="relative pt-48 pb-16 min-h-[95vh] flex items-center justify-center">
+        {/* Ambient Animated Gradients */}
+        <div className="absolute top-0 inset-x-0 h-full overflow-hidden -z-10 bg-gradient-to-br from-orange-50/50 via-white to-red-50/50 pointer-events-none">
+          <motion.div 
+            animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.4, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-orange-300 rounded-full blur-[100px] mix-blend-multiply" 
+          />
+          <motion.div 
+            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-[20%] right-[0%] w-[40vw] h-[40vw] bg-red-300 rounded-full blur-[100px] mix-blend-multiply" 
+          />
+        </div>
 
         <motion.div
-          className="relative z-10 max-w-4xl mx-auto px-6"
-          initial={{ opacity: 0, y: 50 }}
+          className="relative z-10 max-w-5xl mx-auto px-6"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="bg-white/60 backdrop-blur-xl border border-white/40 rounded-3xl shadow-xl p-10 text-center">
-            <motion.h1
-              className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight"
-              initial={{ opacity: 0, scale: 0.8 }}
+          <div className="bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] p-10 md:p-16 text-center ring-1 ring-black/5">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.8, type: "spring", bounce: 0.4 }}
             >
-              <span className="text-black">Raising a Generation</span>
-              <br />
-              <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
-                On Fire for God
-              </span>
-            </motion.h1>
+              <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
+                <span className="text-gray-900 drop-shadow-sm">Raising a Generation</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600 drop-shadow-sm">
+                  On Fire for God
+                </span>
+              </h1>
+            </motion.div>
 
             <motion.p
-              className="text-gray-700 text-lg md:text-xl mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="text-gray-600 text-lg md:text-2xl mb-10 max-w-2xl mx-auto font-medium leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               Teens-Pray is a faith-driven movement dedicated to igniting
@@ -89,22 +102,26 @@ export default function Home() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row justify-center gap-4"
+              className="flex flex-col sm:flex-row justify-center items-center gap-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              {/* JOIN WHATSAPP */}
+              {/* Primary CTA */}
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition inline-block"
+                className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white overflow-hidden shadow-[0_10px_30px_rgba(239,68,68,0.3)] hover:shadow-[0_15px_40px_rgba(239,68,68,0.4)] transition-all hover:-translate-y-1"
               >
-                Join the Movement
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 group-hover:bg-[length:200%_auto] bg-[length:100%_auto] transition-all duration-500"></div>
+                <span className="relative z-10 flex items-center gap-2">
+                  <FaFire className="text-lg group-hover:scale-125 transition-transform" /> Join the Movement
+                </span>
               </a>
 
-              <button className="px-8 py-3 rounded-full border border-red-500 text-red-600 font-semibold hover:bg-red-50 transition">
+              {/* Secondary CTA */}
+              <button className="px-8 py-4 rounded-full border-2 border-transparent bg-white/50 backdrop-blur-sm text-gray-800 font-bold hover:bg-white/80 hover:border-gray-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
                 Learn More
               </button>
             </motion.div>
@@ -113,220 +130,200 @@ export default function Home() {
       </section>
 
       {/* ================= WHAT IS TEENS-PRAY ================= */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-24 relative bg-white">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              What is <span className="text-orange-500">Teens-Pray?</span>
+            <div className="inline-block mb-2 px-4 py-1.5 rounded-full bg-orange-100/80 border border-orange-200 text-orange-600 text-sm font-bold tracking-wide uppercase">
+              About Us
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+              What is <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Teens-Pray?</span>
             </h2>
-            <p className="text-gray-700 text-lg mb-4">
-              Teens-Pray is a faith-driven movement dedicated to raising a
-              generation of teenagers who know God deeply and boldly shine as
-              the light of Christ in their generation.
-            </p>
-            <p className="text-gray-700 text-lg mb-4">
-              We awaken a genuine culture of prayer among teenagers—igniting
-              spiritual fire, nurturing intimacy with God, and shaping young
-              people who are spiritually sensitive, morally grounded, and
-              purpose-driven.
-            </p>
-            <p className="text-gray-700 text-lg">
-              Through prayer gatherings, worship encounters, and teaching,
-              Teens-Pray raises fearless followers of Christ—equipped to
-              withstand societal pressures and impact nations of the earth.
-            </p>
+            <div className="prose prose-lg text-gray-600 font-medium">
+              <p>
+                Teens-Pray is a faith-driven movement dedicated to raising a
+                generation of teenagers who know God deeply and boldly shine as
+                the light of Christ in their generation.
+              </p>
+              <p>
+                We awaken a genuine culture of prayer among teenagers—igniting
+                spiritual fire, nurturing intimacy with God, and shaping young
+                people who are spiritually sensitive, morally grounded, and
+                purpose-driven.
+              </p>
+              <p>
+                Through prayer gatherings, worship encounters, and teaching,
+                Teens-Pray raises fearless followers of Christ—equipped to
+                withstand societal pressures and impact nations of the earth.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
-            className="bg-gradient-to-br from-red-500/10 to-orange-500/10 backdrop-blur-xl border border-orange-200 rounded-3xl p-8 shadow-lg"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            <ul className="space-y-4 text-gray-800 text-lg font-medium">
-              <li>🔥 Prayer & Worship Sessions</li>
-              <li>📖 Word-Based Teachings</li>
-              <li>🤝 Teen Fellowship</li>
-              <li>🌍 Purpose & Identity Building</li>
-            </ul>
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-400/20 rounded-[2.5rem] blur-2xl transform rotate-3 scale-105"></div>
+            <div className="relative bg-white/80 backdrop-blur-2xl border border-white rounded-[2.5rem] p-10 shadow-2xl">
+              <ul className="space-y-6">
+                {[
+                  { text: "Prayer & Worship Sessions", icon: "🔥", color: "text-red-500" },
+                  { text: "Word-Based Teachings", icon: "📖", color: "text-amber-500" },
+                  { text: "Teen Fellowship", icon: "🤝", color: "text-orange-500" },
+                  { text: "Purpose & Identity Building", icon: "🌍", color: "text-rose-500" }
+                ].map((item, i) => (
+                  <motion.li 
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 + (i * 0.1) }}
+                    className="flex items-center gap-5 group"
+                  >
+                    <div className="w-14 h-14 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                      {item.icon}
+                    </div>
+                    <span className="text-gray-800 text-xl font-bold">{item.text}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* ================= MISSION & VISION ================= */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-12"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            Our <span className="text-orange-500">Mission & Vision</span>
-          </motion.h2>
+      <section className="py-28 relative bg-[#fdfdfd] overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-orange-400/10 rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-400/10 rounded-full blur-[100px]"></div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Mission 1 */}
-            <motion.div
-              className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 30 }}
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-4xl md:text-5xl font-black text-gray-900"
+              initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.8 }}
             >
-              <div className="text-red-500 text-5xl mb-4">🔥</div>
-              <h3 className="text-xl font-semibold mb-2">Empower Teens</h3>
-              <p className="text-gray-700 text-sm">
-                Empower teens to deepen their relationship with God and shine as
-                the light of Christ in their generation.
-              </p>
-            </motion.div>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Mission & Vision</span>
+            </motion.h2>
+          </div>
 
-            {/* Mission 2 */}
-            <motion.div
-              className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              <div className="text-orange-500 text-5xl mb-4">🙏</div>
-              <h3 className="text-xl font-semibold mb-2">Ignite Prayer</h3>
-              <p className="text-gray-700 text-sm">
-                Ignite a prayer revolution among teens, transforming them into
-                fearless followers of Christ.
-              </p>
-            </motion.div>
-
-            {/* Vision 1 */}
-            <motion.div
-              className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
-              <div className="text-red-500 text-5xl mb-4">🌍</div>
-              <h3 className="text-xl font-semibold mb-2">Impact Nations</h3>
-              <p className="text-gray-700 text-sm">
-                Raise a generation of young ones who can make positive impact in
-                nations of the earth.
-              </p>
-            </motion.div>
-
-            {/* Vision 2 */}
-            <motion.div
-              className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              <div className="text-orange-500 text-5xl mb-4">🕊️</div>
-              <h3 className="text-xl font-semibold mb-2">Spiritual Pillars</h3>
-              <p className="text-gray-700 text-sm">
-                Prepare young intercessors who know God and communicate it to
-                His people, becoming spiritual pillars and leaders.
-              </p>
-            </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {[
+              { title: "Empower Teens", icon: "🔥", desc: "Empower teens to deepen their relationship with God and shine as the light of Christ in their generation." },
+              { title: "Ignite Prayer", icon: "🙏", desc: "Ignite a prayer revolution among teens, transforming them into fearless followers of Christ." },
+              { title: "Impact Nations", icon: "🌍", desc: "Raise a generation of young ones who can make positive impact in nations of the earth." },
+              { title: "Spiritual Pillars", icon: "🕊️", desc: "Prepare young intercessors who know God and communicate it to His people, becoming spiritual pillars." }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+              >
+                {/* Subtle top border highlight */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-orange-400 to-red-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center text-4xl mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300">
+                  {card.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{card.title}</h3>
+                <p className="text-gray-500 font-medium text-sm leading-relaxed">
+                  {card.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ================= UPCOMING PROGRAM (GLASS HERO) ================= */}
-      <section className="relative py-32 bg-gradient-to-br from-black via-red-600 to-orange-500">
-        {/* Glow Orbs */}
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-500/30 blur-3xl rounded-full" />
-        <div className="absolute top-40 -right-32 w-96 h-96 bg-red-500/30 blur-3xl rounded-full" />
+      <section className="relative py-32 bg-[#050505] overflow-hidden">
+        {/* Cinematic Lighting Orbs */}
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-orange-600/30 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-[30%] -right-[10%] w-[50%] h-[50%] bg-red-600/30 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[60%] h-[40%] bg-amber-600/20 blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
+        <div className="relative max-w-7xl mx-auto px-6 z-10">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="
-                    grid md:grid-cols-2 gap-16 items-center
-                    bg-white/10 backdrop-blur-2xl
-                    border border-white/20
-                    rounded-[2.5rem]
-                    p-10 md:p-14
-                    shadow-[0_20px_80px_rgba(0,0,0,0.6)]
-                  "
+            transition={{ duration: 0.8 }}
+            className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-8 md:p-14 lg:p-20 shadow-[0_0_100px_rgba(0,0,0,0.5)]"
           >
             {/* IMAGE */}
-            <div className="relative w-full order-1 md:order-2">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-xl" />
+            <div className="relative w-full order-1 lg:order-2 perspective-1000 group">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-red-500/30 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500 rounded-3xl" />
               <img
                 src={tp7}
                 alt="TeensPray 2026"
-                className="relative rounded-2xl shadow-2xl 
-                        md:h-[500px] h-[350px] sm:w-[290px] sm:h-[450px] 
-                        md:w-[300px]"
+                className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[500px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
               />
             </div>
 
             {/* TEXT */}
-            <div className="text-white order-2 md:order-1">
-              <span className="inline-block mb-5 px-5 py-2 rounded-full bg-white/15 border border-white/30 text-sm font-semibold">
-                UPCOMING PROGRAM
-              </span>
+            <div className="text-white order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-bold tracking-widest uppercase text-orange-400">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                Upcoming Program
+              </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-                TeensPray 2026
+              <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight">
+                TeensPray <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">2026</span>
               </h2>
 
-              <p className="text-white/90 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-300 text-lg md:text-xl font-medium mb-10 leading-relaxed">
                 A powerful annual gathering igniting prayer, worship, and
-                purpose in teenagers—raising a generation on fire for God.
+                purpose in teenagers. An encounter that raises a generation on fire for God.
               </p>
 
-              <div className="flex flex-wrap gap-6 mb-10 text-white/90">
-                <div className="flex items-center gap-2">
-                  <FaCalendarAlt />
-                  <span>2026</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaMapMarkerAlt />
-                  <span>To Be Announced</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaFire />
-                  <span>Prayer • Worship • Word</span>
-                </div>
+              <div className="flex flex-wrap gap-6 mb-12">
+                {[
+                  { icon: <FaCalendarAlt />, text: "2026 Season" },
+                  { icon: <FaMapMarkerAlt />, text: "To Be Announced" },
+                  { icon: <FaFire />, text: "Prayer • Worship • Word" }
+                ].map((info, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-white/5 px-4 py-2.5 rounded-xl border border-white/5 text-gray-200 font-medium shadow-inner">
+                    <span className="text-orange-500 text-lg">{info.icon}</span>
+                    {info.text}
+                  </div>
+                ))}
               </div>
 
               {/* COUNTDOWN */}
-              <div className="mb-10">
+              <div className="mb-12">
                 <Countdown />
               </div>
 
               {/* REGISTER CTA */}
-              <div className="flex justify-center md:justify-start">
+              <div className="flex">
                 <a
                   href="https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
-                          relative inline-flex items-center justify-center
-                          px-10 py-3 rounded-full
-                          text-lg font-extrabold tracking-wide
-                          text-black
-                          bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600
-                          shadow-[0_0_35px_rgba(255,165,0,0.8)]
-                          hover:shadow-[0_0_55px_rgba(255,80,0,1)]
-                          hover:scale-105
-                          transition-all duration-300
-                          animate-pulse
-                        "
+                  className="group relative inline-flex items-center justify-center px-10 py-4 rounded-full text-lg font-bold text-white overflow-hidden shadow-[0_0_40px_rgba(239,68,68,0.4)] hover:shadow-[0_0_60px_rgba(239,68,68,0.6)] transition-all"
                 >
-                  🔥Stay Updated.
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 transition-all duration-500"></div>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-orange-500 to-red-500 transition-opacity duration-500"></div>
+                  <span className="relative z-10 flex items-center gap-2 drop-shadow-md">
+                    <FaFire className="animate-pulse" /> Stay Updated
+                  </span>
                 </a>
               </div>
             </div>
@@ -335,33 +332,45 @@ export default function Home() {
       </section>
 
       {/* ================= TESTIMONIES ================= */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-28 bg-[#fafafa]">
         <motion.div
-          className="max-w-6xl mx-auto px-6 text-center"
+          className="max-w-7xl mx-auto px-6 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-            What Teens Are Saying
+          <h2 className="text-4xl md:text-5xl font-black mb-16 text-gray-900">
+            What Teens <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Are Saying</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonies.map((t, i) => (
               <motion.div
                 key={i}
-                className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-6 shadow-lg flex flex-col items-center text-center"
+                className="bg-white border border-gray-100 rounded-[2rem] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-shadow duration-300 relative text-left group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.8 }}
+                transition={{ delay: i * 0.15, duration: 0.8 }}
               >
-                <FaQuoteLeft className="text-red-500 text-3xl mb-4" />
-                <p className="text-gray-700 mb-4">"{t.message}"</p>
-                <h3 className="text-lg font-semibold text-orange-500">
-                  {t.name}
-                </h3>
+                <FaQuoteLeft className="text-orange-100 text-6xl absolute top-6 right-8 group-hover:scale-110 transition-transform duration-300 pointer-events-none" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <p className="text-gray-600 font-medium text-lg leading-relaxed mb-10 flex-grow italic">
+                    "{t.message}"
+                  </p>
+                  <div className="flex items-center gap-4 border-t border-gray-100 pt-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-inner">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">
+                        {t.name}
+                      </h3>
+                      <p className="text-orange-500 text-sm font-semibold">Participant</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -369,37 +378,58 @@ export default function Home() {
       </section>
 
       {/* ================= FAQ ================= */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500">
-            Frequently Asked Questions
+      <section className="py-28 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-16 text-gray-900">
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Questions</span>
           </h2>
 
           <div className="flex flex-col gap-4 text-left">
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                className="bg-gray-100 rounded-xl p-6 cursor-pointer shadow hover:shadow-lg transition"
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    <FaQuestionCircle className="text-orange-500" />{" "}
-                    {faq.question}
-                  </h3>
-                  <span className="text-orange-500 font-bold">
-                    {openIndex === i ? "-" : "+"}
-                  </span>
-                </div>
-                {openIndex === i && (
-                  <p className="mt-4 text-gray-700">{faq.answer}</p>
-                )}
-              </motion.div>
-            ))}
+            {faqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <motion.div
+                  key={i}
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer ${
+                    isOpen ? "bg-orange-50/50 border-orange-200 shadow-md" : "bg-white border-gray-200 hover:border-orange-300 hover:shadow-sm"
+                  }`}
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className="p-6 md:p-8 flex justify-between items-center gap-4">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 flex items-center gap-3">
+                      <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-500"}`}>
+                         <FaQuestionCircle />
+                      </div>
+                      {faq.question}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      className={`flex-shrink-0 ${isOpen ? "text-orange-500" : "text-gray-400"}`}
+                    >
+                      <FaChevronDown className="text-xl" />
+                    </motion.div>
+                  </div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 text-gray-600 font-medium text-lg leading-relaxed ml-11 border-t border-orange-100/50 mt-2 pt-4">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
