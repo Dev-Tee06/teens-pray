@@ -45,7 +45,6 @@ function AnimatedCounter({ value }) {
 export default function Programs() {
   return (
     <div className="relative overflow-hidden font-sans bg-[#fafafa]">
-      
       {/* ================= HERO ================= */}
       <section className="relative pt-48 pb-20 bg-gradient-to-b from-orange-50/50 to-transparent">
         <div className="absolute top-0 inset-x-0 h-[500px] overflow-hidden -z-10 pointer-events-none">
@@ -68,7 +67,10 @@ export default function Programs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Programs</span>
+            Our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+              Programs
+            </span>
           </motion.h1>
 
           <motion.p
@@ -78,7 +80,8 @@ export default function Programs() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Raising a generation through prayer, worship, healing, and the transformative power of the Word.
+            Raising a generation through prayer, worship, healing, and the
+            transformative power of the Word.
           </motion.p>
         </div>
       </section>
@@ -99,39 +102,43 @@ export default function Programs() {
           >
             {/* IMAGE */}
             <div className="relative w-full order-1 lg:order-2 perspective-1000">
-               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
-               <img
-                  src={tp7}
-                  alt="TeensPray 2026"
-                  className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[550px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
-               />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
+              <img
+                src={tp7}
+                alt="TeensPray 2026"
+                className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[550px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
+              />
             </div>
 
             {/* TEXT */}
             <div className="text-white order-2 lg:order-1">
               <span className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase text-white shadow-inner">
                 <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                Flagship Gathering
+                A Spiritual Gathering
               </span>
 
               <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tight">
-                TeensPray <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">2026</span>
+                TeensPray{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+                  2026
+                </span>
               </h2>
 
               <p className="text-gray-300 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-lg">
                 Our powerful annual gathering igniting prayer, worship, and
-                purpose in teenagers. Join us as we raise a generation on fire for God.
+                purpose in teenagers. Join us as we raise a generation on fire
+                for God.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14 text-white/90">
-                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
-                    <FaCalendarAlt className="text-orange-500 text-xl" />
-                    <span className="font-semibold">2026 Season</span>
-                 </div>
-                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
-                    <FaMapMarkerAlt className="text-red-500 text-xl" />
-                    <span className="font-semibold">TBA</span>
-                 </div>
+                <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
+                  <FaCalendarAlt className="text-orange-500 text-xl" />
+                  <span className="font-semibold">2026 </span>
+                </div>
+                <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
+                  <FaMapMarkerAlt className="text-red-500 text-xl" />
+                  <span className="font-semibold">TBA</span>
+                </div>
               </div>
 
               {/* COUNTDOWN */}
@@ -161,12 +168,15 @@ export default function Programs() {
       {/* ================= PROGRAMS GRID ================= */}
       <section className="py-32 relative bg-white">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-                Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Initiatives</span>
-             </h2>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+              Core{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                Initiatives
+              </span>
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
@@ -229,16 +239,34 @@ export default function Programs() {
       <section className="py-32 bg-gradient-to-br from-black via-red-900 to-[#1a0500] text-white text-center relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-orange-600/30 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-1/4 w-[25rem] h-[25rem] bg-red-600/20 rounded-full blur-[100px] pointer-events-none"></div>
-        
+
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <motion.h2 className="text-4xl md:text-5xl font-black mb-16 tracking-tight text-white drop-shadow-md">
-            Our Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Impact</span>
+            Our Global{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+              Impact
+            </span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <ImpactCard label="People Reached" value={500} delay={0.1} icon={<FaUsers />} />
-            <ImpactCard label="Healings Recorded" value={100} delay={0.2} icon={<FaHeartbeat />} />
-            <ImpactCard label="Holy Ghost Baptisms" value={50} delay={0.3} icon={<FaFire />} />
+            <ImpactCard
+              label="People Reached"
+              value={500}
+              delay={0.1}
+              icon={<FaUsers />}
+            />
+            <ImpactCard
+              label="Healings Recorded"
+              value={100}
+              delay={0.2}
+              icon={<FaHeartbeat />}
+            />
+            <ImpactCard
+              label="Holy Ghost Baptisms"
+              value={50}
+              delay={0.3}
+              icon={<FaFire />}
+            />
           </div>
         </div>
       </section>
@@ -248,7 +276,10 @@ export default function Programs() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-               Event <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">FAQ</span>
+              Event{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                FAQ
+              </span>
             </h2>
           </div>
 
@@ -276,7 +307,7 @@ export default function Programs() {
 
 function ProgramCard({ image, icon, title, description, features, delay }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -285,20 +316,31 @@ function ProgramCard({ image, icon, title, description, features, delay }) {
     >
       <div className="relative h-64 overflow-hidden">
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
-        <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
         <div className="absolute top-6 right-6 w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl flex items-center justify-center text-orange-500 text-2xl z-20 shadow-lg group-hover:-rotate-6 transition-transform">
-           {icon}
+          {icon}
         </div>
       </div>
-      
+
       <div className="p-10 flex-grow flex flex-col">
-        <h3 className="text-3xl font-bold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-orange-500 transition-colors">{title}</h3>
-        <p className="text-gray-600 font-medium leading-relaxed mb-8 flex-grow">{description}</p>
-        
+        <h3 className="text-3xl font-bold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-orange-500 transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-600 font-medium leading-relaxed mb-8 flex-grow">
+          {description}
+        </p>
+
         <ul className="space-y-3 text-gray-700 font-medium">
           {features.map((f, i) => (
             <li key={i} className="flex gap-3 items-start">
-              <span className="text-orange-500 mt-1 shrink-0"><FaFire className="text-sm" /></span> {f}
+              <span className="text-orange-500 mt-1 shrink-0">
+                <FaFire className="text-sm" />
+              </span>{" "}
+              {f}
             </li>
           ))}
         </ul>
@@ -309,7 +351,7 @@ function ProgramCard({ image, icon, title, description, features, delay }) {
 
 function ImpactCard({ label, value, delay, icon }) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -317,15 +359,17 @@ function ImpactCard({ label, value, delay, icon }) {
       className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-12 shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
     >
       <div className="absolute -inset-2 bg-gradient-to-br from-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition duration-500 blur-xl"></div>
-      
+
       <div className="relative z-10 flex flex-col items-center">
         <div className="text-5xl text-orange-400 mb-6 group-hover:scale-110 transition-transform">
-           {icon}
+          {icon}
         </div>
         <h3 className="text-5xl font-black mb-4 tracking-tighter text-white drop-shadow-sm group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-300 group-hover:to-white transition-colors">
           <AnimatedCounter value={value} />+
         </h3>
-        <p className="text-white/80 font-bold uppercase tracking-widest text-sm">{label}</p>
+        <p className="text-white/80 font-bold uppercase tracking-widest text-sm">
+          {label}
+        </p>
       </div>
     </motion.div>
   );
@@ -337,7 +381,9 @@ function FAQ({ question, answer }) {
   return (
     <motion.div
       className={`border rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer ${
-        open ? "bg-orange-50/50 border-orange-200 shadow-md" : "bg-white border-gray-200 hover:border-orange-300 hover:shadow-sm"
+        open
+          ? "bg-orange-50/50 border-orange-200 shadow-md"
+          : "bg-white border-gray-200 hover:border-orange-300 hover:shadow-sm"
       }`}
       onClick={() => setOpen(!open)}
       initial={{ opacity: 0, y: 10 }}
@@ -346,8 +392,10 @@ function FAQ({ question, answer }) {
     >
       <div className="p-6 md:p-8 flex justify-between items-center gap-4">
         <h3 className="text-lg md:text-xl font-bold text-gray-900 flex items-center gap-4">
-          <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${open ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-500"}`}>
-             <FaQuestionCircle />
+          <div
+            className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${open ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-500"}`}
+          >
+            <FaQuestionCircle />
           </div>
           {question}
         </h3>

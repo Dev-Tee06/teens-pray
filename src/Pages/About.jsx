@@ -56,7 +56,7 @@ export default function About() {
           >
             Who We Are
           </motion.div>
-          
+
           <motion.h1
             className="text-5xl md:text-7xl font-black mb-8 text-gray-900 leading-tight"
             initial={{ opacity: 0, y: -20 }}
@@ -64,7 +64,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            A Generation <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">Awakened</span>
+            A Generation{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">
+              Awakened
+            </span>
           </motion.h1>
 
           <motion.p
@@ -86,9 +89,24 @@ export default function About() {
       <section className="py-24 bg-white relative">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center text-white">
           {[
-            { icon: <FaUsers />, value: 500, label: "People Reached", color: "from-orange-500 to-red-500" },
-            { icon: <FaHeartbeat />, value: 100, label: "Healings Recorded", color: "from-red-500 to-rose-600" },
-            { icon: <FaFire />, value: 50, label: "Holy Ghost Baptisms", color: "from-amber-500 to-orange-500" },
+            {
+              icon: <FaUsers />,
+              value: 500,
+              label: "People Reached",
+              color: "from-orange-500 to-red-500",
+            },
+            {
+              icon: <FaHeartbeat />,
+              value: 100,
+              label: "Healings Recorded",
+              color: "from-red-500 to-rose-600",
+            },
+            {
+              icon: <FaFire />,
+              value: 50,
+              label: "Holy Ghost Baptisms",
+              color: "from-amber-500 to-orange-500",
+            },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -98,9 +116,13 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-90 group-hover:opacity-100 transition-opacity`}></div>
-              <div className={`absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay`}></div>
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-90 group-hover:opacity-100 transition-opacity`}
+              ></div>
+              <div
+                className={`absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay`}
+              ></div>
+
               <div className="relative z-10 bg-black/10 backdrop-blur-sm rounded-[2.4rem] p-10 h-full flex flex-col items-center justify-center border border-white/20">
                 <div className="text-5xl mb-6 bg-white/20 w-24 h-24 flex items-center justify-center rounded-full shadow-inner border border-white/30 group-hover:scale-110 transition-transform duration-500">
                   {stat.icon}
@@ -108,7 +130,9 @@ export default function About() {
                 <h3 className="text-5xl font-black tracking-tight mb-2">
                   <AnimatedCounter value={stat.value} />+
                 </h3>
-                <p className="text-white/90 text-lg font-semibold tracking-wide uppercase">{stat.label}</p>
+                <p className="text-white/90 text-lg font-semibold tracking-wide uppercase">
+                  {stat.label}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -118,15 +142,23 @@ export default function About() {
       {/* ================= VISION & MISSION ================= */}
       <section className="py-28 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div className="text-center mb-16" initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-              Vision & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Mission</span>
+              Vision &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+                Mission
+              </span>
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-10">
             {/* Mission */}
-            <motion.div 
+            <motion.div
               className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 transition-shadow duration-300"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -140,30 +172,38 @@ export default function About() {
               </h3>
               <ul className="space-y-6 text-gray-600 font-medium text-lg">
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><FaPrayingHands className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <FaPrayingHands className="text-sm" />
+                  </div>
                   Empower teens to deepen their relationship with God.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center shrink-0"><FaFire className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center shrink-0">
+                    <FaFire className="text-sm" />
+                  </div>
                   Ignite a prayer revolution among teens.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center shrink-0"><FaGlobe className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center shrink-0">
+                    <FaGlobe className="text-sm" />
+                  </div>
                   Raise a generation impacting nations.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0"><FaDove className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
+                    <FaDove className="text-sm" />
+                  </div>
                   Raise young intercessors who know God.
                 </li>
               </ul>
             </motion.div>
 
             {/* Vision */}
-            <motion.div 
-               className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 transition-shadow duration-300"
-               initial={{ opacity: 0, x: 30 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
+            <motion.div
+              className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 transition-shadow duration-300"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 text-white flex items-center justify-center text-3xl mb-8 shadow-lg">
                 <FaGlobe />
@@ -173,19 +213,27 @@ export default function About() {
               </h3>
               <ul className="space-y-6 text-gray-600 font-medium text-lg">
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0"><FaPrayingHands className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0">
+                    <FaPrayingHands className="text-sm" />
+                  </div>
                   Awaken a genuine culture of prayer.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center shrink-0"><FaDove className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center shrink-0">
+                    <FaDove className="text-sm" />
+                  </div>
                   Raise spiritually grounded teenagers.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center shrink-0"><FaFire className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center shrink-0">
+                    <FaFire className="text-sm" />
+                  </div>
                   Equip teens to stand boldly for Christ.
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="mt-1 w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0"><FaGlobe className="text-sm" /></div>
+                  <div className="mt-1 w-6 h-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
+                    <FaGlobe className="text-sm" />
+                  </div>
                   Prepare future leaders and torchbearers.
                 </li>
               </ul>
@@ -228,8 +276,12 @@ export default function About() {
                 <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-red-500/20 to-orange-500/20 border border-white/10 flex items-center justify-center text-4xl text-orange-400 mb-8 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all">{item.title}</h3>
-                <p className="text-gray-400 text-lg leading-relaxed group-hover:text-gray-300 transition-colors">{item.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-red-400 transition-all">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 text-lg leading-relaxed group-hover:text-gray-300 transition-colors">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -245,9 +297,9 @@ export default function About() {
             viewport={{ once: true }}
             className="w-24 h-24 mx-auto rounded-full bg-orange-100 flex items-center justify-center mb-10 shadow-sm"
           >
-             <FaQuoteLeft className="text-4xl text-orange-500" />
+            <FaQuoteLeft className="text-4xl text-orange-500" />
           </motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -257,7 +309,7 @@ export default function About() {
             “Through Teens-Pray, my prayer life was revived and my passion for
             God was restored. I now stand boldly for Christ in my school.”
           </motion.p>
-          <motion.h4 
+          <motion.h4
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -283,29 +335,29 @@ export default function About() {
           <div className="relative inline-block group">
             <button
               onClick={() => setOpen(!open)}
-              className="px-12 py-5 rounded-full bg-white text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 text-xl font-black shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all hover:-translate-y-1"
+              className="px-12 py-5 rounded-full bg-white text-white bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 text-xl font-black shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all hover:-translate-y-1"
             >
               Get Involved
             </button>
 
             {open && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 className="absolute left-1/2 -translate-x-1/2 mt-6 w-72 bg-white text-gray-800 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden border border-gray-100"
               >
                 <div className="p-2">
                   <a
-                    href="/outreach"
-                    className="block px-6 py-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 font-bold transition-colors"
+                    href={"https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white overflow-hidden shadow-[0_10px_30px_rgba(239,68,68,0.3)] hover:shadow-[0_15px_40px_rgba(239,68,68,0.4)] transition-all hover:-translate-y-1"
                   >
-                    Community Outreach
-                  </a>
-                  <a
-                    href="/children"
-                    className="block px-6 py-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 font-bold transition-colors"
-                  >
-                    Children Ministry
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 group-hover:bg-[length:200%_auto] bg-[length:100%_auto] transition-all duration-500"></div>
+                    <span className="relative z-10 flex items-center gap-2">
+                      <FaFire className="text-lg group-hover:scale-125 transition-transform" />{" "}
+                      Join the Movement
+                    </span>
                   </a>
                 </div>
               </motion.div>
