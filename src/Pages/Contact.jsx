@@ -91,7 +91,7 @@ export default function Contact() {
                   <p className="text-gray-400 text-xs uppercase tracking-[0.2em] mb-1">
                     Email
                   </p>
-                  <p className="text-lg md:text-xl font-semibold break-all">
+                  <p className="text-sm md:text-xl font-semibold break-all">
                     teenspray01@gmail.com
                   </p>
                 </div>
