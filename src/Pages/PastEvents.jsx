@@ -4,7 +4,7 @@ import { FaFire, FaUsers, FaChild, FaPlay, FaImage } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
 /* ===== IMPORT ASSETS ===== */
-import tp7 from "../assets/tp7.jpg";
+import teensmain from "../assets/teensmain.jpeg";
 import tp6 from "../assets/tp6.png";
 import tp3 from "../assets/tp3.png";
 import tp2 from "../assets/tp2.png";
@@ -53,9 +53,10 @@ const events = [
     title: "Teens Pray 2026",
     year: 2026,
     type: "conference",
-    coverImage: tp7,
+    coverImage: teensmain,
     icon: <FaFire className="text-orange-500 text-4xl" />,
-    description: "An upcoming gathering of teenagers for prayer, worship, and revival.",
+    description:
+      "An upcoming gathering of teenagers for prayer, worship, and revival.",
     images: [],
   },
   {
@@ -64,10 +65,25 @@ const events = [
     type: "conference",
     coverImage: tp6,
     icon: <FaFire className="text-orange-500 text-4xl" />,
-    description: "A powerful gathering marked by intense prayer, worship, and spiritual transformation.",
+    description:
+      "A powerful gathering marked by intense prayer, worship, and spiritual transformation.",
     images: [
-      teens1, teens2, teens5, teens6, teens8, teens3, teens10, teens11, teens4,
-      teens12, teens13, teens14, teens15, teens16, teens20, teens18,
+      teens1,
+      teens2,
+      teens5,
+      teens6,
+      teens8,
+      teens3,
+      teens10,
+      teens11,
+      teens4,
+      teens12,
+      teens13,
+      teens14,
+      teens15,
+      teens16,
+      teens20,
+      teens18,
     ],
     video: teenspray4,
   },
@@ -77,10 +93,21 @@ const events = [
     type: "conference",
     coverImage: teens,
     icon: <FaUsers className="text-amber-500 text-4xl" />,
-    description: "An unforgettable conference where teenagers encountered God deeply.",
+    description:
+      "An unforgettable conference where teenagers encountered God deeply.",
     images: [
-      pray3, pray5, pray7, pray9, pray11, pray12, pray14, pray15, pray16, pray17,
-      pray18, pray19,
+      pray3,
+      pray5,
+      pray7,
+      pray9,
+      pray11,
+      pray12,
+      pray14,
+      pray15,
+      pray16,
+      pray17,
+      pray18,
+      pray19,
     ],
   },
   {
@@ -98,7 +125,8 @@ const events = [
     type: "outreach",
     coverImage: tp2,
     icon: <FaUsers className="text-red-500 text-4xl" />,
-    description: "Outreaches focused on healing, miracles, and sharing the love of Christ.",
+    description:
+      "Outreaches focused on healing, miracles, and sharing the love of Christ.",
     video: teenspray2,
   },
 ];
@@ -119,10 +147,10 @@ export default function PastEvents() {
       <section className="relative pt-48 pb-24 text-center bg-black overflow-hidden">
         {/* Abstract Background */}
         <div className="absolute inset-0 z-0">
-           <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-[#fafafa] opacity-90"></div>
-           <div className="absolute top-[-50%] left-[-20%] w-[60%] h-[150%] bg-orange-600/20 blur-[150px] rotate-[-20deg]"></div>
-           <div className="absolute top-[-20%] right-[-20%] w-[60%] h-[150%] bg-red-600/20 blur-[150px] rotate-[20deg]"></div>
-           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-[#fafafa] opacity-90"></div>
+          <div className="absolute top-[-50%] left-[-20%] w-[60%] h-[150%] bg-orange-600/20 blur-[150px] rotate-[-20deg]"></div>
+          <div className="absolute top-[-20%] right-[-20%] w-[60%] h-[150%] bg-red-600/20 blur-[150px] rotate-[20deg]"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -140,16 +168,20 @@ export default function PastEvents() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Our Past <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Events</span>
+            Our Past{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">
+              Events
+            </span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="max-w-2xl mx-auto text-xl font-medium text-gray-300 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            A visual journey through powerful moments of prayer, worship, and kingdom impact that shaped a generation.
+            A visual journey through powerful moments of prayer, worship, and
+            kingdom impact that shaped a generation.
           </motion.p>
         </div>
       </section>
@@ -157,12 +189,36 @@ export default function PastEvents() {
       {/* FILTERS */}
       <section className="py-12 bg-white border-b border-gray-100 shadow-sm sticky top-20 z-40">
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 px-6 max-w-7xl mx-auto">
-          <FilterButton label="All Experiences" active={filter === "all"} onClick={() => setFilter("all")} />
-          <FilterButton label="2026" active={filter === 2026} onClick={() => setFilter(2026)} />
-          <FilterButton label="2025" active={filter === 2025} onClick={() => setFilter(2025)} />
-          <FilterButton label="2024" active={filter === 2024} onClick={() => setFilter(2024)} />
-          <FilterButton label="Outreach" active={filter === "outreach"} onClick={() => setFilter("outreach")} />
-          <FilterButton label="Children" active={filter === "children"} onClick={() => setFilter("children")} />
+          <FilterButton
+            label="All Experiences"
+            active={filter === "all"}
+            onClick={() => setFilter("all")}
+          />
+          <FilterButton
+            label="2026"
+            active={filter === 2026}
+            onClick={() => setFilter(2026)}
+          />
+          <FilterButton
+            label="2025"
+            active={filter === 2025}
+            onClick={() => setFilter(2025)}
+          />
+          <FilterButton
+            label="2024"
+            active={filter === 2024}
+            onClick={() => setFilter(2024)}
+          />
+          <FilterButton
+            label="Outreach"
+            active={filter === "outreach"}
+            onClick={() => setFilter("outreach")}
+          />
+          <FilterButton
+            label="Children"
+            active={filter === "children"}
+            onClick={() => setFilter("children")}
+          />
         </div>
       </section>
 
@@ -224,7 +280,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
         <div className="absolute inset-0 flex flex-col items-center justify-end text-center text-white p-10 md:p-16">
           <div className="bg-white/10 backdrop-blur-md p-4 rounded-3xl mb-6 shadow-2xl border border-white/20">
-             {icon}
+            {icon}
           </div>
           <h2 className="text-4xl md:text-5xl font-black mb-4 drop-shadow-md">
             {title}
@@ -239,14 +295,14 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
       {video && (
         <div className="mb-16 flex justify-center">
           <div className="relative w-full md:w-2/3 lg:w-1/2 rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-gray-200 bg-white p-2 group">
-             <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase rounded-full tracking-widest">
-                <FaPlay className="text-orange-500" /> Event Highlight
-             </div>
-             <video
-               src={video}
-               controls
-               className="w-full h-72 md:h-96 rounded-[1.5rem] object-cover bg-black"
-             />
+            <div className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md text-white text-xs font-bold uppercase rounded-full tracking-widest">
+              <FaPlay className="text-orange-500" /> Event Highlight
+            </div>
+            <video
+              src={video}
+              controls
+              className="w-full h-72 md:h-96 rounded-[1.5rem] object-cover bg-black"
+            />
           </div>
         </div>
       )}
@@ -255,8 +311,8 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
       {visibleImages.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-8">
-             <FaImage className="text-2xl text-orange-500" />
-             <h3 className="text-3xl font-black text-gray-900">Event Gallery</h3>
+            <FaImage className="text-2xl text-orange-500" />
+            <h3 className="text-3xl font-black text-gray-900">Event Gallery</h3>
           </div>
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6"
@@ -265,24 +321,24 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
             viewport={{ once: true }}
           >
             <AnimatePresence>
-               {visibleImages.map((img, i) => (
-                 <motion.div
-                   layout
-                   key={i}
-                   initial={{ opacity: 0, scale: 0.9 }}
-                   animate={{ opacity: 1, scale: 1 }}
-                   exit={{ opacity: 0, scale: 0.9 }}
-                   transition={{ duration: 0.4 }}
-                   className="relative group overflow-hidden rounded-3xl shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
-                 >
-                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-                   <img
-                     src={img}
-                     alt={title}
-                     className="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-700"
-                   />
-                 </motion.div>
-               ))}
+              {visibleImages.map((img, i) => (
+                <motion.div
+                  layout
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative group overflow-hidden rounded-3xl shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
+                >
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+                  <img
+                    src={img}
+                    alt={title}
+                    className="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </motion.div>
+              ))}
             </AnimatePresence>
           </motion.div>
         </div>
@@ -297,7 +353,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
           >
             <div className="absolute inset-0 bg-gray-900 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-300 z-0"></div>
             <span className="relative z-10">
-               {showAll ? "View Less" : "Load Experience Gallery"}
+              {showAll ? "View Less" : "Load Experience Gallery"}
             </span>
           </button>
         </div>

@@ -8,7 +8,7 @@ import {
   FaQuestionCircle,
   FaChevronDown,
 } from "react-icons/fa";
-import tp7 from "../assets/tp7.jpg";
+import teensmain from "../assets/teensmain.jpeg";
 import { useState } from "react";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
@@ -58,15 +58,20 @@ export default function Home() {
       <section className="relative pt-48 pb-16 min-h-[95vh] flex items-center justify-center">
         {/* Ambient Animated Gradients */}
         <div className="absolute top-0 inset-x-0 h-full overflow-hidden -z-10 bg-gradient-to-br from-orange-50/50 via-white to-red-50/50 pointer-events-none">
-          <motion.div 
+          <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.4, 0.3] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-orange-300 rounded-full blur-[100px] mix-blend-multiply" 
+            className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-orange-300 rounded-full blur-[100px] mix-blend-multiply"
           />
-          <motion.div 
+          <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-[20%] right-[0%] w-[40vw] h-[40vw] bg-red-300 rounded-full blur-[100px] mix-blend-multiply" 
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="absolute top-[20%] right-[0%] w-[40vw] h-[40vw] bg-red-300 rounded-full blur-[100px] mix-blend-multiply"
           />
         </div>
 
@@ -80,10 +85,17 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8, type: "spring", bounce: 0.4 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.8,
+                type: "spring",
+                bounce: 0.4,
+              }}
             >
               <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">
-                <span className="text-gray-900 drop-shadow-sm">Raising a Generation</span>
+                <span className="text-gray-900 drop-shadow-sm">
+                  Raising a Generation
+                </span>
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600 drop-shadow-sm">
                   On Fire for God
@@ -116,7 +128,8 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 group-hover:bg-[length:200%_auto] bg-[length:100%_auto] transition-all duration-500"></div>
                 <span className="relative z-10 flex items-center gap-2">
-                  <FaFire className="text-lg group-hover:scale-125 transition-transform" /> Join the Movement
+                  <FaFire className="text-lg group-hover:scale-125 transition-transform" />{" "}
+                  Join the Movement
                 </span>
               </a>
 
@@ -132,7 +145,7 @@ export default function Home() {
       {/* ================= WHAT IS TEENS-PRAY ================= */}
       <section className="py-24 relative bg-white">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
+
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -145,7 +158,10 @@ export default function Home() {
               About Us
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-              What is <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Teens-Pray?</span>
+              What is{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                Teens-Pray?
+              </span>
             </h2>
             <div className="prose prose-lg text-gray-600 font-medium">
               <p>
@@ -178,23 +194,41 @@ export default function Home() {
             <div className="relative bg-white/80 backdrop-blur-2xl border border-white rounded-[2.5rem] p-10 shadow-2xl">
               <ul className="space-y-6">
                 {[
-                  { text: "Prayer & Worship Sessions", icon: "🔥", color: "text-red-500" },
-                  { text: "Word-Based Teachings", icon: "📖", color: "text-amber-500" },
-                  { text: "Teen Fellowship", icon: "🤝", color: "text-orange-500" },
-                  { text: "Purpose & Identity Building", icon: "🌍", color: "text-rose-500" }
+                  {
+                    text: "Prayer & Worship Sessions",
+                    icon: "🔥",
+                    color: "text-red-500",
+                  },
+                  {
+                    text: "Word-Based Teachings",
+                    icon: "📖",
+                    color: "text-amber-500",
+                  },
+                  {
+                    text: "Teen Fellowship",
+                    icon: "🤝",
+                    color: "text-orange-500",
+                  },
+                  {
+                    text: "Purpose & Identity Building",
+                    icon: "🌍",
+                    color: "text-rose-500",
+                  },
                 ].map((item, i) => (
-                  <motion.li 
+                  <motion.li
                     key={i}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4 + (i * 0.1) }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
                     className="flex items-center gap-5 group"
                   >
                     <div className="w-14 h-14 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                       {item.icon}
                     </div>
-                    <span className="text-gray-800 text-xl font-bold">{item.text}</span>
+                    <span className="text-gray-800 text-xl font-bold">
+                      {item.text}
+                    </span>
                   </motion.li>
                 ))}
               </ul>
@@ -217,16 +251,35 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Mission & Vision</span>
+              Our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+                Mission & Vision
+              </span>
             </motion.h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { title: "Empower Teens", icon: "🔥", desc: "Empower teens to deepen their relationship with God and shine as the light of Christ in their generation." },
-              { title: "Ignite Prayer", icon: "🙏", desc: "Ignite a prayer revolution among teens, transforming them into fearless followers of Christ." },
-              { title: "Impact Nations", icon: "🌍", desc: "Raise a generation of young ones who can make positive impact in nations of the earth." },
-              { title: "Spiritual Pillars", icon: "🕊️", desc: "Prepare young intercessors who know God and communicate it to His people, becoming spiritual pillars." }
+              {
+                title: "Empower Teens",
+                icon: "🔥",
+                desc: "Empower teens to deepen their relationship with God and shine as the light of Christ in their generation.",
+              },
+              {
+                title: "Ignite Prayer",
+                icon: "🙏",
+                desc: "Ignite a prayer revolution among teens, transforming them into fearless followers of Christ.",
+              },
+              {
+                title: "Impact Nations",
+                icon: "🌍",
+                desc: "Raise a generation of young ones who can make positive impact in nations of the earth.",
+              },
+              {
+                title: "Spiritual Pillars",
+                icon: "🕊️",
+                desc: "Prepare young intercessors who know God and communicate it to His people, becoming spiritual pillars.",
+              },
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -238,11 +291,13 @@ export default function Home() {
               >
                 {/* Subtle top border highlight */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-orange-400 to-red-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                
+
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center text-4xl mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300">
                   {card.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{card.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {card.title}
+                </h3>
                 <p className="text-gray-500 font-medium text-sm leading-relaxed">
                   {card.desc}
                 </p>
@@ -271,9 +326,9 @@ export default function Home() {
             <div className="relative w-full order-1 lg:order-2 perspective-1000 group">
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-red-500/30 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500 rounded-3xl" />
               <img
-                src={tp7}
+                src={teensmain}
                 alt="TeensPray 2026"
-                className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[500px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
+                className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[700px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
               />
             </div>
 
@@ -285,21 +340,28 @@ export default function Home() {
               </div>
 
               <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tight">
-                TeensPray <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">2026</span>
+                TeensPray{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+                  2026
+                </span>
               </h2>
 
               <p className="text-gray-300 text-lg md:text-xl font-medium mb-10 leading-relaxed">
                 A powerful annual gathering igniting prayer, worship, and
-                purpose in teenagers. An encounter that raises a generation on fire for God.
+                purpose in teenagers. An encounter that raises a generation on
+                fire for God.
               </p>
 
               <div className="flex flex-wrap gap-6 mb-12">
                 {[
                   { icon: <FaCalendarAlt />, text: "2026 Season" },
                   { icon: <FaMapMarkerAlt />, text: "To Be Announced" },
-                  { icon: <FaFire />, text: "Prayer • Worship • Word" }
+                  { icon: <FaFire />, text: "Prayer • Worship • Word" },
                 ].map((info, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-white/5 px-4 py-2.5 rounded-xl border border-white/5 text-gray-200 font-medium shadow-inner">
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 bg-white/5 px-4 py-2.5 rounded-xl border border-white/5 text-gray-200 font-medium shadow-inner"
+                  >
                     <span className="text-orange-500 text-lg">{info.icon}</span>
                     {info.text}
                   </div>
@@ -341,7 +403,10 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-black mb-16 text-gray-900">
-            What Teens <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Are Saying</span>
+            What Teens{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+              Are Saying
+            </span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -367,7 +432,9 @@ export default function Home() {
                       <h3 className="text-lg font-bold text-gray-900">
                         {t.name}
                       </h3>
-                      <p className="text-orange-500 text-sm font-semibold">Participant</p>
+                      <p className="text-orange-500 text-sm font-semibold">
+                        Participant
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -381,7 +448,10 @@ export default function Home() {
       <section className="py-28 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-16 text-gray-900">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Questions</span>
+            Frequently Asked{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+              Questions
+            </span>
           </h2>
 
           <div className="flex flex-col gap-4 text-left">
@@ -391,7 +461,9 @@ export default function Home() {
                 <motion.div
                   key={i}
                   className={`border rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer ${
-                    isOpen ? "bg-orange-50/50 border-orange-200 shadow-md" : "bg-white border-gray-200 hover:border-orange-300 hover:shadow-sm"
+                    isOpen
+                      ? "bg-orange-50/50 border-orange-200 shadow-md"
+                      : "bg-white border-gray-200 hover:border-orange-300 hover:shadow-sm"
                   }`}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   initial={{ opacity: 0, y: 10 }}
@@ -401,8 +473,10 @@ export default function Home() {
                 >
                   <div className="p-6 md:p-8 flex justify-between items-center gap-4">
                     <h3 className="text-lg md:text-xl font-bold text-gray-900 flex items-center gap-3">
-                      <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-500"}`}>
-                         <FaQuestionCircle />
+                      <div
+                        className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-orange-100 text-orange-600" : "bg-gray-100 text-gray-500"}`}
+                      >
+                        <FaQuestionCircle />
                       </div>
                       {faq.question}
                     </h3>
