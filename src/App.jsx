@@ -5,10 +5,13 @@ import About from "./Pages/About";
 import Programs from "./Pages/Programs";
 import PastEvents from "./Pages/PastEvents";
 import Contact from "./Pages/Contact";
+import Register from "./Pages/Register";
+import AdminLogin from "./Pages/AdminLogin";
+import AdminRegistrations from "./Pages/AdminRegistrations";
 
 import Navbar from "./Components/Navbar";
-import Countdown from "./Components/Countdown";
 import Footer from "./Components/Footer";
+import ProtectedAdminRoute from "./Components/ProtectedAdminRoute";
 
 export default function App() {
   return (
@@ -29,6 +32,16 @@ export default function App() {
             <Route path="/programs" element={<Programs />} />
             <Route path="/past-events" element={<PastEvents />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/registrations"
+              element={
+                <ProtectedAdminRoute>
+                  <AdminRegistrations />
+                </ProtectedAdminRoute>
+              }
+            />
           </Routes>
         </main>
 
