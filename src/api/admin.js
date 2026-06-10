@@ -1,8 +1,8 @@
 /**
- * ============================================================
+ 
  * Admin API Routes
  * File: src/api/admin.js
- * ============================================================
+
  * This file contains all admin-related API operations
  */
 
@@ -19,10 +19,10 @@ import {
 } from "../lib/supabase";
 
 /**
- * Admin login
- * @param {string} email - Admin email
- * @param {string} password - Admin password
- * @returns {Promise<{success: boolean, user?: Object, error?: string}>}
+  Admin login
+  @param {string} email - Admin email
+  @param {string} password - Admin password
+  @returns {Promise<{success: boolean, user?: Object, error?: string}>}
  */
 export async function adminLogin(email, password) {
   try {

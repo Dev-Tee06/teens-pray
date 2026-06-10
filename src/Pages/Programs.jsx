@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   FaFire,
@@ -13,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 /* ===== IMAGES ===== */
-import tp7 from "../assets/tp7.jpg";
+import teensmain from "../assets/teensmain.jpeg";
 import tp6 from "../assets/tp6.png";
 import tp3 from "../assets/tp3.png";
 import tp2 from "../assets/tp2.png";
@@ -104,9 +105,9 @@ export default function Programs() {
             <div className="relative w-full order-1 lg:order-2 perspective-1000">
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
               <img
-                src={tp7}
+                src={teensmain}
                 alt="TeensPray 2026"
-                className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[550px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
+                className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[750px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
               />
             </div>
 
@@ -147,19 +148,14 @@ export default function Programs() {
               </div>
 
               {/* CTA */}
-              <div>
-                <a
-                  href="https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-10 py-4 rounded-full text-lg font-bold text-white overflow-hidden shadow-[0_10px_40px_rgba(239,68,68,0.4)] hover:shadow-[0_15px_60px_rgba(239,68,68,0.6)] transition-all hover:-translate-y-1"
+              {/* <div className="relative mt-6 flex justify-center">
+                <Link
+                  to="/register"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-[length:200%_auto]"></div>
-                  <span className="relative z-10 flex items-center gap-2 drop-shadow-md">
-                    <FaFire className="animate-pulse" /> Register Now
-                  </span>
-                </a>
-              </div>
+                  Register Now
+                </Link>
+              </div> */}
             </div>
           </motion.div>
         </div>
