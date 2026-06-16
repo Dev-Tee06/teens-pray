@@ -42,7 +42,7 @@ export default function App() {
                 <Route path="/programs" element={<Programs />} />
                 <Route path="/past-events" element={<PastEvents />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/register" element={<Register />} />
+                {/* <Route path="/register" element={<Register />} /> */}
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route
                   path="/admin/registrations"

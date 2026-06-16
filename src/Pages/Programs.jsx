@@ -187,7 +187,7 @@ export default function Programs() {
               </div>
 
               {/* CTA */}
-              {
+              {/* {
                 <div className="relative mt-6 flex justify-center">
                   <Link
                     to="/register"
@@ -196,7 +196,7 @@ export default function Programs() {
                     Register Now
                   </Link>
                 </div>
-              }
+              } */}
             </div>
           </motion.div>
         </div>
