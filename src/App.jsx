@@ -12,7 +12,9 @@ const PastEvents = React.lazy(() => import("./Pages/PastEvents"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Register = React.lazy(() => import("./Pages/Register"));
 const AdminLogin = React.lazy(() => import("./Pages/AdminLogin"));
-const AdminRegistrations = React.lazy(() => import("./Pages/AdminRegistrations"));
+const AdminRegistrations = React.lazy(
+  () => import("./Pages/AdminRegistrations"),
+);
 
 export default function App() {
   return (
@@ -27,14 +29,20 @@ export default function App() {
 
           {/* Page Content */}
           <main className="flex-grow">
-            <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]">Loading...</div>}>
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-center min-h-[60vh]">
+                  Loading...
+                </div>
+              }
+            >
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/programs" element={<Programs />} />
                 <Route path="/past-events" element={<PastEvents />} />
                 <Route path="/contact" element={<Contact />} />
-                {/* <Route path="/register" element={<Register />} /> */}
+                <Route path="/register" element={<Register />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route
                   path="/admin/registrations"
@@ -47,7 +55,6 @@ export default function App() {
               </Routes>
             </Suspense>
           </main>
-
 
           {/* Footer */}
           <Footer />

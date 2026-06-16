@@ -56,17 +56,18 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden font-sans">
-      <SEO 
+      <SEO
         title="TeenSpray | Empowering Teenagers Through Faith and Growth"
         description="TeenSpray empowers teenagers spiritually, socially, and academically through faith-based initiatives."
         url="/"
         schemaData={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "TeenSpray",
-          "url": "https://teenspray.org",
-          "logo": "https://teenspray.org/teenslogo.png",
-          "description": "TeenSpray empowers teenagers spiritually, socially, and academically through faith-based initiatives."
+          name: "TeenSpray",
+          url: "https://teenspray.org",
+          logo: "https://teenspray.org/teenslogo.png",
+          description:
+            "TeenSpray empowers teenagers spiritually, socially, and academically through faith-based initiatives.",
         }}
       />
       {/* ================= HERO SECTION ================= */}
@@ -340,19 +341,22 @@ export default function Home() {
             {/* IMAGE */}
             <div className="relative w-full order-1 lg:order-2 perspective-1000 group">
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-red-500/30 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500 rounded-3xl" />
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={teensmain}
                 alt="TeensPray 2026"
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[700px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
               />
-              {/* <div className="relative mt-6 flex justify-center">
-                <Link
-                  to="/register"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
-                >
-                  Register Now
-                </Link>
-              </div> */}
+              {
+                <div className="relative mt-6 flex justify-center">
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
+                  >
+                    Register Now
+                  </Link>
+                </div>
+              }
             </div>
 
             {/* TEXT */}
