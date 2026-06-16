@@ -8,6 +8,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { supabase } from "../lib/supabase";
+import SEO from "../Components/SEO";
 
 const pageSize = 100;
 
@@ -210,6 +211,11 @@ export default function AdminRegistrations() {
 
   return (
     <div className="bg-[#fafafa] px-6 pt-36 pb-20">
+      <SEO 
+        title="Admin Registrations - TeenSpray"
+        description="TeenSpray administration area for managing registrations."
+        url="/admin/registrations"
+      />
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>

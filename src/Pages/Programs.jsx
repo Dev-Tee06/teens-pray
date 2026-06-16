@@ -14,13 +14,14 @@ import {
 } from "react-icons/fa";
 
 /* ===== IMAGES ===== */
-import teensmain from "../assets/teensmain.jpeg";
-import tp6 from "../assets/tp6.png";
-import tp3 from "../assets/tp3.png";
-import tp2 from "../assets/tp2.png";
-import tp1 from "../assets/tp1.png";
+import teensmain from "../assets/teensmain.webp";
+import tp6 from "../assets/tp6.webp";
+import tp3 from "../assets/tp3.webp";
+import tp2 from "../assets/tp2.webp";
+import tp1 from "../assets/tp1.webp";
 
 import Countdown from "../Components/Countdown";
+import SEO from "../Components/SEO";
 
 /* ================= COUNTER ================= */
 function AnimatedCounter({ value }) {
@@ -46,6 +47,44 @@ function AnimatedCounter({ value }) {
 export default function Programs() {
   return (
     <div className="relative overflow-hidden font-sans bg-[#fafafa]">
+      <SEO 
+        title="TeenSpray Programs"
+        description="Discover TeenSpray programs including the annual conference, children's meetings, and 6-hour prayer charges."
+        url="/programs"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "TeensPray 2026",
+          "startDate": "2026-01-01T00:00:00",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "To Be Announced",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "To Be Announced"
+            }
+          },
+          "image": [
+            "https://teenspray.org/teenslogo.png"
+          ],
+          "description": "Our powerful annual gathering igniting prayer, worship, and purpose in teenagers.",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://teenspray.org/programs",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01T00:00:00"
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "TeenSpray",
+            "url": "https://teenspray.org"
+          }
+        }}
+      />
       {/* ================= HERO ================= */}
       <section className="relative pt-48 pb-20 bg-gradient-to-b from-orange-50/50 to-transparent">
         <div className="absolute top-0 inset-x-0 h-[500px] overflow-hidden -z-10 pointer-events-none">
@@ -104,7 +143,7 @@ export default function Programs() {
             {/* IMAGE */}
             <div className="relative w-full order-1 lg:order-2 perspective-1000">
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
-              <img
+              <img loading="lazy"
                 src={teensmain}
                 alt="TeensPray 2026"
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[750px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
@@ -312,7 +351,7 @@ function ProgramCard({ image, icon, title, description, features, delay }) {
     >
       <div className="relative h-64 overflow-hidden">
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
-        <img
+        <img loading="lazy"
           src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

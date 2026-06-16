@@ -8,6 +8,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { isSupabaseConfigured, supabase } from "../lib/supabase";
+import SEO from "../Components/SEO";
 
 const heardAboutOptions = [
   "Friend",
@@ -134,6 +135,11 @@ export default function Register() {
 
   return (
     <div className="bg-white">
+      <SEO 
+        title="Register for TeenSpray"
+        description="Register for the upcoming TeensPray Conference and secure your participation."
+        url="/register"
+      />
       <section className="relative pt-40 pb-20 overflow-hidden bg-[#090909] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.28),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(220,38,38,0.22),transparent_34%)]" />
         <motion.div

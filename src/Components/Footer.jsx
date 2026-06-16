@@ -1,5 +1,5 @@
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import logo from "../assets/teenslogo.png";
+import logo from "../assets/teenslogo.webp";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
 
@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="relative group inline-block">
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-600 rounded-full opacity-40 group-hover:opacity-75 blur-xl transition duration-500"></div>
               <div className="relative p-1 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
-                <img
+                <img loading="lazy"
                   src={logo}
                   alt="Teens-Pray Logo"
                   className="h-28 w-28 md:h-32 md:w-32 object-cover rounded-full"

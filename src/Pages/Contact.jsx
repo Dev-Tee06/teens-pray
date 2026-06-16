@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 // import emailjs from "@emailjs/browser";
+import SEO from "../Components/SEO";
 
 import {
   FaPhone,
@@ -33,6 +34,11 @@ export default function Contact() {
 
   return (
     <div className="overflow-hidden font-sans relative bg-[#fafafa]">
+      <SEO 
+        title="Contact TeenSpray"
+        description="Get in touch with TeenSpray for inquiries, support, or partnership opportunities."
+        url="/contact"
+      />
       {/* Background Orbs */}
       <div className="absolute -top-32 -left-32 w-[40rem] h-[40rem] bg-orange-400/20 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute top-20 -right-32 w-[35rem] h-[35rem] bg-red-400/15 rounded-full blur-[100px] pointer-events-none"></div>

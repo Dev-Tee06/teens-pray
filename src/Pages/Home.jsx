@@ -9,8 +9,9 @@ import {
   FaQuestionCircle,
   FaChevronDown,
 } from "react-icons/fa";
-import teensmain from "../assets/teensmain.jpeg";
+import teensmain from "../assets/teensmain.webp";
 import { useState } from "react";
+import SEO from "../Components/SEO";
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW";
 
@@ -55,6 +56,19 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden font-sans">
+      <SEO 
+        title="TeenSpray | Empowering Teenagers Through Faith and Growth"
+        description="TeenSpray empowers teenagers spiritually, socially, and academically through faith-based initiatives."
+        url="/"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "TeenSpray",
+          "url": "https://teenspray.org",
+          "logo": "https://teenspray.org/teenslogo.png",
+          "description": "TeenSpray empowers teenagers spiritually, socially, and academically through faith-based initiatives."
+        }}
+      />
       {/* ================= HERO SECTION ================= */}
       <section className="relative pt-48 pb-16 min-h-[95vh] flex items-center justify-center">
         {/* Ambient Animated Gradients */}
@@ -326,7 +340,7 @@ export default function Home() {
             {/* IMAGE */}
             <div className="relative w-full order-1 lg:order-2 perspective-1000 group">
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-red-500/30 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500 rounded-3xl" />
-              <img
+              <img loading="lazy"
                 src={teensmain}
                 alt="TeensPray 2026"
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[700px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"

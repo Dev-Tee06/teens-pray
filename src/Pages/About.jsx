@@ -11,6 +11,7 @@ import {
   FaQuoteLeft,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import SEO from "../Components/SEO";
 
 /* ================= Animated Counter ================= */
 function AnimatedCounter({ value, duration = 2000 }) {
@@ -40,6 +41,11 @@ export default function About() {
 
   return (
     <div className="relative overflow-hidden font-sans">
+      <SEO 
+        title="About TeenSpray"
+        description="Learn more about TeenSpray's mission to empower teenagers through faith and growth."
+        url="/about"
+      />
       {/* Floating Effects */}
       <div className="fixed -top-40 -left-40 w-[40rem] h-[40rem] bg-orange-400/10 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="fixed top-80 -right-40 w-[40rem] h-[40rem] bg-red-400/10 rounded-full blur-[100px] pointer-events-none -z-10" />

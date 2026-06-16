@@ -6,6 +6,7 @@ import {
   isSupabaseConfigured,
   supabase,
 } from "../lib/supabase";
+import SEO from "../Components/SEO";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -57,6 +58,11 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-[75vh] bg-white px-6 pt-40 pb-20">
+      <SEO 
+        title="Admin Login - TeenSpray"
+        description="Login to the TeenSpray administration area."
+        url="/admin/login"
+      />
       <div className="max-w-md mx-auto rounded-[2rem] border border-gray-100 bg-white p-8 shadow-[0_20px_70px_rgba(0,0,0,0.07)]">
         <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-600">
           <FaLock className="text-2xl" />

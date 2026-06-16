@@ -2,45 +2,46 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFire, FaUsers, FaChild, FaPlay, FaImage } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
+import SEO from "../Components/SEO";
 
 /* ===== IMPORT ASSETS ===== */
-import teensmain from "../assets/teensmain.jpeg";
-import tp6 from "../assets/tp6.png";
-import tp3 from "../assets/tp3.png";
-import tp2 from "../assets/tp2.png";
-import teens from "../assets/teens2024.jpg";
+import teensmain from "../assets/teensmain.webp";
+import tp6 from "../assets/tp6.webp";
+import tp3 from "../assets/tp3.webp";
+import tp2 from "../assets/tp2.webp";
+import teens from "../assets/teens2024.webp";
 
 /* 2025 images */
-import teens1 from "../assets/teens1.jpg";
-import teens2 from "../assets/teens2.jpg";
-import teens3 from "../assets/teens3.jpg";
-import teens4 from "../assets/teens4.jpg";
-import teens5 from "../assets/teens5.jpg";
-import teens6 from "../assets/teens6.jpg";
-import teens8 from "../assets/teens8.jpg";
-import teens10 from "../assets/teens10.jpg";
-import teens11 from "../assets/teens11.jpg";
-import teens12 from "../assets/teens12.jpg";
-import teens13 from "../assets/teens13.jpg";
-import teens14 from "../assets/teens14.jpg";
-import teens15 from "../assets/teens15.jpg";
-import teens16 from "../assets/teens16.jpg";
-import teens18 from "../assets/teens18.jpg";
-import teens20 from "../assets/teens20.jpg";
+import teens1 from "../assets/teens1.webp";
+import teens2 from "../assets/teens2.webp";
+import teens3 from "../assets/teens3.webp";
+import teens4 from "../assets/teens4.webp";
+import teens5 from "../assets/teens5.webp";
+import teens6 from "../assets/teens6.webp";
+import teens8 from "../assets/teens8.webp";
+import teens10 from "../assets/teens10.webp";
+import teens11 from "../assets/teens11.webp";
+import teens12 from "../assets/teens12.webp";
+import teens13 from "../assets/teens13.webp";
+import teens14 from "../assets/teens14.webp";
+import teens15 from "../assets/teens15.webp";
+import teens16 from "../assets/teens16.webp";
+import teens18 from "../assets/teens18.webp";
+import teens20 from "../assets/teens20.webp";
 
 /* 2024 images */
-import pray3 from "../assets/pray3.jpg";
-import pray5 from "../assets/pray5.jpg";
-import pray7 from "../assets/pray7.jpg";
-import pray9 from "../assets/pray9.jpg";
-import pray11 from "../assets/pray11.jpg";
-import pray12 from "../assets/pray12.jpg";
-import pray14 from "../assets/pray14.jpg";
-import pray15 from "../assets/pray15.jpg";
-import pray16 from "../assets/pray16.jpg";
-import pray17 from "../assets/pray17.jpg";
-import pray18 from "../assets/pray18.jpg";
-import pray19 from "../assets/pray19.jpg";
+import pray3 from "../assets/pray3.webp";
+import pray5 from "../assets/pray5.webp";
+import pray7 from "../assets/pray7.webp";
+import pray9 from "../assets/pray9.webp";
+import pray11 from "../assets/pray11.webp";
+import pray12 from "../assets/pray12.webp";
+import pray14 from "../assets/pray14.webp";
+import pray15 from "../assets/pray15.webp";
+import pray16 from "../assets/pray16.webp";
+import pray17 from "../assets/pray17.webp";
+import pray18 from "../assets/pray18.webp";
+import pray19 from "../assets/pray19.webp";
 
 /* videos */
 import teenspray4 from "../assets/teenspray4.mp4";
@@ -143,6 +144,11 @@ export default function PastEvents() {
 
   return (
     <div className="font-sans bg-[#fafafa]">
+      <SEO 
+        title="TeenSpray Past Events & Memories"
+        description="Explore the gallery and memories of past TeenSpray events, conferences, and outreaches."
+        url="/past-events"
+      />
       {/* HERO */}
       <section className="relative pt-48 pb-24 text-center bg-black overflow-hidden">
         {/* Abstract Background */}
@@ -272,7 +278,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
     <div className="max-w-7xl mx-auto px-6">
       {/* COVER */}
       <div className="relative h-80 md:h-[400px] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] mb-16 group">
-        <img
+        <img loading="lazy"
           src={coverImage}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
@@ -332,7 +338,7 @@ function EventSection({ title, description, images, icon, coverImage, video }) {
                   className="relative group overflow-hidden rounded-3xl shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
                 >
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-                  <img
+                  <img loading="lazy"
                     src={img}
                     alt={title}
                     className="w-full h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-700"

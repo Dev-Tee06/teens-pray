@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import teenlogo from "../assets/teenlogo.png";
+import teenlogo from "../assets/teenlogo.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -50,7 +50,7 @@ export default function Navbar() {
           className="flex items-center gap-2 z-50 relative shrink-0"
           onClick={() => setOpen(false)}
         >
-          <img
+          <img loading="lazy"
             src={teenlogo}
             alt="Teens Pray Logo"
             className="h-19 md:h-17 w-auto object-contain drop-shadow-sm transition-transform hover:scale-105"

@@ -1,17 +1,18 @@
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Programs from "./Pages/Programs";
-import PastEvents from "./Pages/PastEvents";
-import Contact from "./Pages/Contact";
-import Register from "./Pages/Register";
-import AdminLogin from "./Pages/AdminLogin";
-import AdminRegistrations from "./Pages/AdminRegistrations";
 
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import ProtectedAdminRoute from "./Components/ProtectedAdminRoute";
+
+const Home = React.lazy(() => import("./Pages/Home"));
+const About = React.lazy(() => import("./Pages/About"));
+const Programs = React.lazy(() => import("./Pages/Programs"));
+const PastEvents = React.lazy(() => import("./Pages/PastEvents"));
+const Contact = React.lazy(() => import("./Pages/Contact"));
+const Register = React.lazy(() => import("./Pages/Register"));
+const AdminLogin = React.lazy(() => import("./Pages/AdminLogin"));
+const AdminRegistrations = React.lazy(() => import("./Pages/AdminRegistrations"));
 
 export default function App() {
   return (
@@ -26,24 +27,27 @@ export default function App() {
 
           {/* Page Content */}
           <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/past-events" element={<PastEvents />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* <Route path="/register" element={<Register />} /> */}
-              <Route path="/admin/login" element={<AdminLogin />} />
-              <Route
-                path="/admin/registrations"
-                element={
-                  <ProtectedAdminRoute>
-                    <AdminRegistrations />
-                  </ProtectedAdminRoute>
-                }
-              />
-            </Routes>
+            <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]">Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/programs" element={<Programs />} />
+                <Route path="/past-events" element={<PastEvents />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* <Route path="/register" element={<Register />} /> */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route
+                  path="/admin/registrations"
+                  element={
+                    <ProtectedAdminRoute>
+                      <AdminRegistrations />
+                    </ProtectedAdminRoute>
+                  }
+                />
+              </Routes>
+            </Suspense>
           </main>
+
 
           {/* Footer */}
           <Footer />
