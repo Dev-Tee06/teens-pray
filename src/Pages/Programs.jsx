@@ -156,20 +156,17 @@ export default function Programs() {
                 <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
                 A Spiritual Gathering
               </span>
-
               <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tight">
                 TeensPray{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
                   2026
                 </span>
               </h2>
-
               <p className="text-gray-300 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-lg">
                 Our powerful annual gathering igniting prayer, worship, and
                 purpose in teenagers. Join us as we raise a generation on fire
                 for God.
               </p>
-
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14 text-white/90">
                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
                   <FaCalendarAlt className="text-orange-500 text-xl" />
@@ -180,14 +177,12 @@ export default function Programs() {
                   <span className="font-semibold">TBA</span>
                 </div>
               </div>
-
               {/* COUNTDOWN */}
               <div className="mb-14">
                 <Countdown />
               </div>
-
-              {/* CTA */}
-              {/* {
+              CTA
+              {
                 <div className="relative mt-6 flex justify-center">
                   <Link
                     to="/register"
@@ -196,7 +191,7 @@ export default function Programs() {
                     Register Now
                   </Link>
                 </div>
-              } */}
+              }
             </div>
           </motion.div>
         </div>

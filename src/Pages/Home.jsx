@@ -348,14 +348,14 @@ export default function Home() {
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[700px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
               />
               {
-                // <div className="relative mt-6 flex justify-center">
-                //   <Link
-                //     to="/register"
-                //     className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
-                //   >
-                //     Register Now
-                //   </Link>
-                // </div>
+                <div className="relative mt-6 flex justify-center">
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
+                  >
+                    Register Now
+                  </Link>
+                </div>
               }
             </div>
 
