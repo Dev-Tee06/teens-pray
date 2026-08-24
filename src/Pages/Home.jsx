@@ -9,7 +9,7 @@ import {
   FaQuestionCircle,
   FaChevronDown,
 } from "react-icons/fa";
-import teensmain from "../assets/teensmain.webp";
+import mainImage from "../assets/main.webp";
 import { useState } from "react";
 import SEO from "../Components/SEO";
 
@@ -343,7 +343,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-red-500/30 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500 rounded-3xl" />
               <img
                 loading="lazy"
-                src={teensmain}
+                src={mainImage}
                 alt="TeensPray 2026"
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover sm:h-[700px] hover:scale-[1.02] hover:rotate-1 transition-all duration-500 border border-white/10"
               />
@@ -381,8 +381,11 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-6 mb-12">
                 {[
-                  { icon: <FaCalendarAlt />, text: "2026 Season" },
-                  { icon: <FaMapMarkerAlt />, text: "To Be Announced" },
+                  { icon: <FaCalendarAlt />, text: "2026" },
+                  {
+                    icon: <FaMapMarkerAlt />,
+                    text: "RCCG, HIGH TOWER MAIN AUDITORIUM",
+                  },
                   { icon: <FaFire />, text: "Prayer • Worship • Word" },
                 ].map((info, i) => (
                   <div

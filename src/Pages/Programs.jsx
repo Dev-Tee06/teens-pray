@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 /* ===== IMAGES ===== */
-import teensmain from "../assets/teensmain.webp";
+import mainImage from "../assets/main.webp";
 import tp6 from "../assets/tp6.webp";
 import tp3 from "../assets/tp3.webp";
 import tp2 from "../assets/tp2.webp";
@@ -144,7 +144,7 @@ export default function Programs() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
               <img
                 loading="lazy"
-                src={teensmain}
+                src={mainImage}
                 alt="TeensPray 2026"
                 className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[750px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
               />
@@ -174,14 +174,16 @@ export default function Programs() {
                 </div>
                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
                   <FaMapMarkerAlt className="text-red-500 text-xl" />
-                  <span className="font-semibold">TBA</span>
+                  <span className="font-semibold">
+                    RCCG, HIGH TOWER MAIN AUDITORIUM
+                  </span>
                 </div>
               </div>
               {/* COUNTDOWN */}
               <div className="mb-14">
                 <Countdown />
               </div>
-              CTA
+
               {
                 <div className="relative mt-6 flex justify-center">
                   <Link
