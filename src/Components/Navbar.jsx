@@ -36,13 +36,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-sm py-2 border-b border-gray-100"
-          : "bg-transparent py-4 md:py-6"
-      }`}
-    >
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? `py-2 ${
+                open
+                  ? "bg-transparent"
+                  : "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100"
+              }`
+            : "bg-transparent py-4 md:py-6"
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20 md:h-22">
         {/* Logo */}
         <NavLink
@@ -125,55 +130,57 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ opacity: 0, clipPath: "circle(0% at 100% 0)" }}
-              animate={{ opacity: 1, clipPath: "circle(150% at 100% 0)" }}
-              exit={{ opacity: 0, clipPath: "circle(0% at 100% 0)" }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 bg-[#fdfaf6] flex flex-col items-center justify-center gap-10 z-40 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-            >
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.08 }}
-                >
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      `text-3xl font-black tracking-wide transition-all duration-300 ${
-                        isActive
-                          ? "text-orange-500"
-                          : "text-gray-800 hover:text-orange-400"
-                      }`
-                    }
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.name}
-                  </NavLink>
-                </motion.div>
-              ))}
-
-              <motion.a
-                href="https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 px-10 py-4 rounded-full bg-orange-500 text-white font-bold text-lg shadow-lg hover:scale-105 transition-transform"
-                onClick={() => setOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                Join the Movement
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </nav>
+
+    {/* Mobile Menu */}
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, clipPath: "circle(0% at 100% 0)" }}
+          animate={{ opacity: 1, clipPath: "circle(150% at 100% 0)" }}
+          exit={{ opacity: 0, clipPath: "circle(0% at 100% 0)" }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 bg-[#fdfaf6] flex flex-col items-center justify-center gap-10 z-40 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+        >
+          {navLinks.map((link, index) => (
+            <motion.div
+              key={link.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08 }}
+            >
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-3xl font-black tracking-wide transition-all duration-300 ${
+                    isActive
+                      ? "text-orange-500"
+                      : "text-gray-800 hover:text-orange-400"
+                  }`
+                }
+                onClick={() => setOpen(false)}
+              >
+                {link.name}
+              </NavLink>
+            </motion.div>
+          ))}
+
+          <motion.a
+            href="https://chat.whatsapp.com/C5xbPYMDNbJ5IvP0zQgjOW"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 px-10 py-4 rounded-full bg-orange-500 text-white font-bold text-lg shadow-lg hover:scale-105 transition-transform"
+            onClick={() => setOpen(false)}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            Join the Movement
+          </motion.a>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
