@@ -8,19 +8,15 @@ import {
   FaClock,
   FaUsers,
   FaQuestionCircle,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
   FaChevronDown,
 } from "react-icons/fa";
 
 /* ===== IMAGES ===== */
-import mainImage from "../assets/main.webp";
 import tp6 from "../assets/tp6.webp";
 import tp3 from "../assets/tp3.webp";
 import tp2 from "../assets/tp2.webp";
 import tp1 from "../assets/tp1.webp";
 
-import Countdown from "../Components/Countdown";
 import SEO from "../Components/SEO";
 
 /* ================= COUNTER ================= */
@@ -125,79 +121,7 @@ export default function Programs() {
         </div>
       </section>
 
-      {/* ================= UPCOMING PROGRAM (GLASS HERO) ================= */}
-      <section className="relative py-32 bg-[#050505] overflow-hidden">
-        {/* Ambient Lights */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
-        <div className="absolute top-[-10%] -left-[10%] w-[40rem] h-[40rem] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-[-10%] -right-[10%] w-[40rem] h-[40rem] bg-red-600/20 blur-[150px] rounded-full pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-16 items-center bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-10 md:p-14 lg:p-16 shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
-          >
-            {/* IMAGE */}
-            <div className="relative w-full order-1 lg:order-2 perspective-1000">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/40 to-red-500/40 blur-3xl opacity-60 rounded-3xl -z-10" />
-              <img
-                loading="lazy"
-                src={mainImage}
-                alt="TeensPray 2026"
-                className="relative rounded-[2rem] shadow-2xl w-full object-cover lg:h-[750px] border border-white/10 hover:scale-[1.02] transition-transform duration-700"
-              />
-            </div>
-
-            {/* TEXT */}
-            <div className="text-white order-2 lg:order-1">
-              <span className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest uppercase text-white shadow-inner">
-                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-                A Spiritual Gathering
-              </span>
-              <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tight">
-                TeensPray{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-                  2026
-                </span>
-              </h2>
-              <p className="text-gray-300 text-lg md:text-xl font-medium mb-10 leading-relaxed max-w-lg">
-                Our powerful annual gathering igniting prayer, worship, and
-                purpose in teenagers. Join us as we raise a generation on fire
-                for God.
-              </p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14 text-white/90">
-                <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
-                  <FaCalendarAlt className="text-orange-500 text-xl" />
-                  <span className="font-semibold">2026 </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3 rounded-2xl">
-                  <FaMapMarkerAlt className="text-red-500 text-xl" />
-                  <span className="font-semibold">
-                    RCCG, HIGH TOWER MAIN AUDITORIUM
-                  </span>
-                </div>
-              </div>
-              {/* COUNTDOWN */}
-              <div className="mb-14">
-                <Countdown />
-              </div>
-
-              {
-                <div className="relative mt-6 flex justify-center">
-                  <Link
-                    to="/register"
-                    className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 font-black text-gray-950 shadow-[0_14px_40px_rgba(255,255,255,0.16)] transition hover:-translate-y-0.5 hover:bg-orange-50 focus:outline-none focus:ring-4 focus:ring-orange-300"
-                  >
-                    Register Now
-                  </Link>
-                </div>
-              }
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* ================= PROGRAMS GRID ================= */}
       <section className="py-32 relative bg-white">
